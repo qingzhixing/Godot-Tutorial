@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cffbcdsd6qmuy"]
+[gd_scene load_steps=19 format=3 uid="uid://cffbcdsd6qmuy"]
 
 [ext_resource type="PackedScene" uid="uid://chdap5manlixu" path="res://prefabs/Player.tscn" id="1_6kt0q"]
 [ext_resource type="Script" path="res://scripts/Game Manager.gd" id="1_j2nav"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dw1tr1h6bqrer" path="res://prefabs/Platforms/GoldPlatform1.tscn" id="7_s232c"]
 [ext_resource type="PackedScene" uid="uid://dwnaw3wg0vi6y" path="res://prefabs/Slime.tscn" id="9_hj36n"]
 [ext_resource type="FontFile" uid="uid://7shymupe6dih" path="res://assets/fonts/PixelOperator8.ttf" id="10_hv6vj"]
-[ext_resource type="PackedScene" uid="uid://dhretj85asud2" path="res://scenes/Music.tscn" id="13_bgu6t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfiqy"]
 texture = ExtResource("2_vfp26")
@@ -421,6 +420,21 @@ sources/0 = SubResource("TileSetAtlasSource_gfiqy")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yuum7"]
 
+[sub_resource type="Animation" id="Animation_ilbmm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(664, 76)]
+}
+
 [sub_resource type="Animation" id="Animation_yhkgc"]
 resource_name = "new_animation"
 length = 2.0
@@ -436,21 +450,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1.36604, 1.18921),
 "update": 0,
 "values": [Vector2(664, 92), Vector2(664, 4)]
-}
-
-[sub_resource type="Animation" id="Animation_ilbmm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(664, 76)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_oidhs"]
@@ -773,6 +772,3 @@ text = "You made it!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-
-[node name="Music" parent="." instance=ExtResource("13_bgu6t")]
-bus = &"Music"
