@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwnaw3wg0vi6y"]
+[gd_scene load_steps=18 format=3 uid="uid://dwnaw3wg0vi6y"]
 
 [ext_resource type="Texture2D" uid="uid://c3crsj4m8bljk" path="res://assets/sprites/slime_green.png" id="1_1t6uh"]
 [ext_resource type="Script" path="res://scripts/SlimeController.gd" id="1_iuxm0"]
@@ -20,6 +20,38 @@ region = Rect2(48, 24, 24, 24)
 atlas = ExtResource("1_1t6uh")
 region = Rect2(72, 24, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm37i"]
+atlas = ExtResource("1_1t6uh")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mom43"]
+atlas = ExtResource("1_1t6uh")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwbg2"]
+atlas = ExtResource("1_1t6uh")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8s4v"]
+atlas = ExtResource("1_1t6uh")
+region = Rect2(72, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ij6u"]
+atlas = ExtResource("1_1t6uh")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8gr"]
+atlas = ExtResource("1_1t6uh")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hav6e"]
+atlas = ExtResource("1_1t6uh")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_do4wn"]
+atlas = ExtResource("1_1t6uh")
+region = Rect2(72, 0, 24, 24)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_6uvvt"]
 animations = [{
 "frames": [{
@@ -38,6 +70,40 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm37i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mom43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwbg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8s4v")
+}],
+"loop": true,
+"name": &"injure",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ij6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw8gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hav6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_do4wn")
+}],
+"loop": true,
+"name": &"wake",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j0a5"]
@@ -49,10 +115,9 @@ script = ExtResource("1_iuxm0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6uvvt")
-animation = &"idle"
+animation = &"wake"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.504723
+frame_progress = 0.303359
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, -5)

@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = 60
+const SPEED = 20
 
 enum Direction {
 	FORWARD = 1,
