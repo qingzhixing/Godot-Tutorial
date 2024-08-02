@@ -44,6 +44,8 @@ size = Vector2(9, 7)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_asgq7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
