@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_irkgt"]
-size = Vector2(9, 7)
+size = Vector2(11, 8)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -56,5 +56,5 @@ autoplay = "idle"
 frame_progress = 0.314389
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -3.5)
+position = Vector2(-0.5, -4)
 shape = SubResource("RectangleShape2D_irkgt")
