@@ -661,8 +661,10 @@ autoplay = "new_animation"
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Slime" parent="." instance=ExtResource("9_hj36n")]
-position = Vector2(136, -32.6746)
+[node name="Slime" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(136, -33)
+scale = Vector2(1, 1.00996)
 
-[node name="Slime2" parent="." instance=ExtResource("9_hj36n")]
-position = Vector2(361, 95.0533)
+[node name="Slime2" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(361, 96)
+scale = Vector2(1, 1.00996)
