@@ -1,6 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cffbcdsd6qmuy"]
+[gd_scene load_steps=20 format=3 uid="uid://cffbcdsd6qmuy"]
 
 [ext_resource type="PackedScene" uid="uid://chdap5manlixu" path="res://prefabs/Player.tscn" id="1_6kt0q"]
+[ext_resource type="Script" path="res://scripts/Game Manager.gd" id="1_j2nav"]
+[ext_resource type="FontFile" uid="uid://mvakn1p08fdp" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_h56qn"]
 [ext_resource type="Texture2D" uid="uid://dvfldxbuormap" path="res://assets/sprites/world_tileset.png" id="2_vfp26"]
 [ext_resource type="PackedScene" uid="uid://75kb0qbjvbfx" path="res://prefabs/Platforms/GrassPlatform1.tscn" id="4_675y5"]
 [ext_resource type="PackedScene" uid="uid://350pwoo2hnrb" path="res://prefabs/Coin.tscn" id="4_bke0e"]
@@ -10,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dw1tr1h6bqrer" path="res://prefabs/Platforms/GoldPlatform1.tscn" id="7_s232c"]
 [ext_resource type="PackedScene" uid="uid://dwnaw3wg0vi6y" path="res://prefabs/Slime.tscn" id="9_hj36n"]
 [ext_resource type="FontFile" uid="uid://7shymupe6dih" path="res://assets/fonts/PixelOperator8.ttf" id="10_hv6vj"]
+[ext_resource type="PackedScene" uid="uid://dhretj85asud2" path="res://scenes/Music.tscn" id="13_bgu6t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfiqy"]
 texture = ExtResource("2_vfp26")
@@ -459,6 +462,23 @@ _data = {
 [node name="Main Game" type="Node2D"]
 scale = Vector2(1, 1.00996)
 
+[node name="Game Manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_j2nav")
+
+[node name="CoinLabel" type="Label" parent="Game Manager"]
+offset_left = 636.0
+offset_top = -119.0
+offset_right = 820.0
+offset_bottom = -85.0
+theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
+theme_override_fonts/font = ExtResource("2_h56qn")
+theme_override_font_sizes/font_size = 8
+text = "You collected X coins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gknqk")
 format = 2
@@ -740,3 +760,19 @@ theme_override_colors/font_color = Color(0.0823529, 0.207843, 0.396078, 1)
 theme_override_fonts/font = ExtResource("10_hv6vj")
 theme_override_font_sizes/font_size = 8
 text = "Watch Out"
+
+[node name="Label7" type="Label" parent="Labels"]
+offset_left = 628.0
+offset_top = -134.0
+offset_right = 812.0
+offset_bottom = -100.0
+theme_override_colors/font_color = Color(0.0980392, 0.313726, 0.752941, 1)
+theme_override_fonts/font = ExtResource("2_h56qn")
+theme_override_font_sizes/font_size = 8
+text = "You made it!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Music" parent="." instance=ExtResource("13_bgu6t")]
+bus = &"Music"
