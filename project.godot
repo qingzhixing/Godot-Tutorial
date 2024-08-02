@@ -20,6 +20,7 @@ config/icon="res://assets/icon/icon.svg"
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Item"
 2d_physics/layer_3="Player"
+2d_physics/layer_4="Enemy"
 
 [rendering]
 
