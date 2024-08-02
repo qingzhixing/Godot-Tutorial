@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://350pwoo2hnrb"]
+[gd_scene load_steps=17 format=3 uid="uid://350pwoo2hnrb"]
 
+[ext_resource type="Script" path="res://scripts/CoinController.gd" id="1_fxpeg"]
 [ext_resource type="Texture2D" uid="uid://blv1wsvsb0yym" path="res://assets/sprites/coin.png" id="1_ucf8i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4erpy"]
@@ -98,6 +99,9 @@ animations = [{
 size = Vector2(10, 10)
 
 [node name="Coin" type="Area2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_fxpeg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_phmre")
@@ -105,3 +109,5 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_kldt4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
