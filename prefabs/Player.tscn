@@ -1,8 +1,10 @@
-[gd_scene load_steps=45 format=3 uid="uid://chdap5manlixu"]
+[gd_scene load_steps=47 format=3 uid="uid://chdap5manlixu"]
 
 [ext_resource type="Script" path="res://scripts/PlayerController.gd" id="1_asgq7"]
 [ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/knight.png" id="1_t34wm"]
 [ext_resource type="AudioStream" uid="uid://dgky55ppitnyv" path="res://assets/sounds/jump.wav" id="3_00jqq"]
+[ext_resource type="AudioStream" uid="uid://b4wjrnb0pryoa" path="res://assets/sounds/hurt.wav" id="4_xus33"]
+[ext_resource type="AudioStream" uid="uid://dgd8c788klocn" path="res://assets/sounds/power_up.wav" id="5_pmspo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxp6e"]
 atlas = ExtResource("1_t34wm")
@@ -331,6 +333,14 @@ shape = SubResource("RectangleShape2D_irkgt")
 
 [node name="Audios" type="Node" parent="."]
 
-[node name="Jump Audio" type="AudioStreamPlayer2D" parent="Audios"]
+[node name="Jump" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("3_00jqq")
+bus = &"SFX"
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("4_xus33")
+bus = &"SFX"
+
+[node name="Power Up" type="AudioStreamPlayer2D" parent="Audios"]
+stream = ExtResource("5_pmspo")
 bus = &"SFX"
