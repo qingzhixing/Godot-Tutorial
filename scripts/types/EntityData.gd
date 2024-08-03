@@ -1,10 +1,13 @@
 extends Resource
 class_name Classes
 
+
 class EntityData extends Resource:
     @export var health: float
     @export var damage: float
     @export var speed: float
+    signal on_died
+    signal on_injured(damage: float)
 
     func is_died():
         return health <= 0;
@@ -15,9 +18,11 @@ class EntityData extends Resource:
         speed = 0
 
     func take_damage(_damage: float):
-        print("Take damage: ", _damage)
         health -= _damage
-        print("Leave health: ", health)
+        if !on_injured.is_null():
+            on_injured.emit(damage)
+        if is_died() && !on_died.is_null():
+            on_died.emit()
 
     static func construct(_health: float, _damage: float, _speed: float):
         var temp_entity = EntityData.new()

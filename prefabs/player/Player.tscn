@@ -1,10 +1,40 @@
-[gd_scene load_steps=47 format=3 uid="uid://chdap5manlixu"]
+[gd_scene load_steps=50 format=3 uid="uid://chdap5manlixu"]
 
 [ext_resource type="Script" path="res://scripts/controllers/PlayerController.gd" id="1_asgq7"]
 [ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/enity/player/knight.png" id="1_t34wm"]
 [ext_resource type="AudioStream" uid="uid://dgky55ppitnyv" path="res://assets/sounds/jump.wav" id="3_00jqq"]
 [ext_resource type="AudioStream" uid="uid://b4wjrnb0pryoa" path="res://assets/sounds/hurt.wav" id="4_xus33"]
 [ext_resource type="AudioStream" uid="uid://dgd8c788klocn" path="res://assets/sounds/power_up.wav" id="5_pmspo"]
+
+[sub_resource type="Animation" id="Animation_g5f4g"]
+resource_name = "injure"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_injured_animation"
+}, {
+"args": [],
+"method": &"end_injured_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_umbmp"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a34pn"]
+_data = {
+"RESET": SubResource("Animation_umbmp"),
+"injure": SubResource("Animation_g5f4g")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bxp6e"]
 atlas = ExtResource("1_t34wm")
@@ -177,10 +207,10 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kust7")
 }, {
-"duration": 100.0,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cnrnd")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -217,7 +247,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_47l7o")
 }],
-"loop": true,
+"loop": false,
 "name": &"injure",
 "speed": 10.0
 }, {
@@ -321,10 +351,15 @@ collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_asgq7")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a34pn")
+}
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_ov6m6")
-animation = &"death"
+animation = &"injure"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

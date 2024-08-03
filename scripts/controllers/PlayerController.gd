@@ -6,20 +6,24 @@ const EntityData = Classes.EntityData
 const GameManager = preload("res://scripts/controllers/Game Manager.gd")
 
 @onready var animated_sprite = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
 @onready var collision_shape = $CollisionShape2D
+@onready var hurt_audio = $Audios/Hurt
 @onready var jump_audio = $"Audios/Jump"
 @onready var game_manager = % "Game Manager" as GameManager
 
 var entity_data: EntityData = EntityData.construct(5, 1, 130)
 # @export var run_speed = 130.0
 @export var jump_velocity = -320.0
-var death_handled = false;
+var is_died = false
+var injuring = false
 
 func _ready():
-	pass
+	entity_data.on_died.connect(on_death)
+	entity_data.on_injured.connect(on_injured)
 
 func handle_sprite(direction: float):
-	if entity_data.is_died():
+	if is_died || injuring:
 		return
 
 	if direction > 0:
@@ -36,10 +40,23 @@ func handle_sprite(direction: float):
 	else:
 		animated_sprite.play("run")
 
-func handle_death():
-	if death_handled:
+func on_injured(damage: float):
+	print("Injured! damage: ", damage)
+	hurt_audio.play()
+	animation_player.play("injure")
+
+func start_injured_animation():
+	if is_died:
 		return
-	death_handled = true
+	injuring = true
+	animated_sprite.play("injure")
+
+func end_injured_animation():
+	injuring = false
+
+func on_death():
+	print("You Died!")
+	is_died = true
 	animated_sprite.play("death")
 	collision_shape.disabled = true
 	game_manager.handle_death()
@@ -70,7 +87,3 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, entity_data.speed)
 
 	move_and_slide()
-
-func _process(delta):
-	if entity_data.is_died():
-		handle_death()
