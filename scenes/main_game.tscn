@@ -479,6 +479,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
+[node name="Restart Count Down" type="Timer" parent="Game Manager"]
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gknqk")
 format = 2
@@ -498,6 +500,8 @@ limit_bottom = 160
 position_smoothing_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("5_i8xay")]
+damage = 1000.0
+interval = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(71, 144.56)
@@ -777,3 +781,6 @@ autowrap_mode = 3
 [node name="Arrow" parent="." instance=ExtResource("14_gxh0b")]
 position = Vector2(13, -8)
 direction = -1
+
+[connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="_on_restart_count_down_timeout"]
+[connection signal="body_entered" from="Killzone" to="Player" method="_on_killzone_body_entered"]
