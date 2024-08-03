@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -320.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var jump_audio = $"Audios/Jump Audio"
+@onready var jump_audio = $"Audios/Jump"
 
 func _physics_process(delta):
 	# Add the gravity.
