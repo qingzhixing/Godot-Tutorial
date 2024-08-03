@@ -685,6 +685,7 @@ autoplay = "new_animation"
 [node name="Slime" parent="Enemies" instance=ExtResource("9_hj36n")]
 position = Vector2(136, -33)
 scale = Vector2(1, 1.00996)
+direction = 1
 
 [node name="Slime4" parent="Enemies" instance=ExtResource("12_yjsgp")]
 position = Vector2(363, 96)
@@ -775,3 +776,4 @@ autowrap_mode = 3
 
 [node name="Arrow" parent="." instance=ExtResource("14_gxh0b")]
 position = Vector2(13, -8)
+direction = -1

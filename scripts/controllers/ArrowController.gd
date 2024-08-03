@@ -1,12 +1,15 @@
 extends Area2D
+const Direction = Constants.Direction
 
-@export var fly_speed: int = 30
+@onready var sprite_2d = $Sprite2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+@export var fly_speed: int = 10
+@export var direction: Direction = Direction.FORWARD
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if direction == Direction.FORWARD:
+		sprite_2d.flip_h = false
+	else:
+		sprite_2d.flip_h = true
+	position.x += fly_speed * direction * delta
