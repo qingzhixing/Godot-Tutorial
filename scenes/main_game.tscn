@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cffbcdsd6qmuy"]
 
 [ext_resource type="PackedScene" uid="uid://chdap5manlixu" path="res://prefabs/player/Player.tscn" id="1_6kt0q"]
-[ext_resource type="Script" path="res://scripts/Game Manager.gd" id="1_j2nav"]
+[ext_resource type="Script" path="res://scripts/controllers/Game Manager.gd" id="1_j2nav"]
 [ext_resource type="FontFile" uid="uid://mvakn1p08fdp" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_h56qn"]
 [ext_resource type="Texture2D" uid="uid://dvfldxbuormap" path="res://assets/sprites/map element/tiles/world_tileset.png" id="2_vfp26"]
 [ext_resource type="PackedScene" uid="uid://75kb0qbjvbfx" path="res://prefabs/platforms/GrassPlatform1.tscn" id="4_675y5"]

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -320.0
+@export var run_speed = 130.0
+@export var jump_velocity = -320.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -17,7 +17,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_velocity
 		jump_audio.play()
 
 	# Get the input direction and handle the movement/deceleration.
@@ -39,8 +39,8 @@ func _physics_process(delta):
 
 	# Movement
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * run_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, run_speed)
 
 	move_and_slide()

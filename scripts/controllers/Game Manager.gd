@@ -1,6 +1,6 @@
 extends Node
 
-var coins: int = 0
+@export var coins: int = 0
 
 @onready var coin_label = $CoinLabel
 

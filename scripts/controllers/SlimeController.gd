@@ -1,11 +1,8 @@
 extends Node2D
 
-const SPEED = 20
+@export var SPEED = 20
 
-enum Direction {
-	FORWARD = 1,
-	BACKWARD = -1,
-}
+const Direction = Constants.Direction
 
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
@@ -13,7 +10,7 @@ enum Direction {
 @onready var ray_cast_left_down = $RayCastLeftDown
 @onready var animated_sprite = $AnimatedSprite2D
 
-var direction = Direction.FORWARD;
+@export var direction: Direction
 
 func handle_direction():
 	if (ray_cast_left.is_colliding() || (!ray_cast_left_down.is_colliding())):
