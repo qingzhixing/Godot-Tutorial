@@ -19,6 +19,12 @@ func set_empty():
 	animation_player.play("empty")
 
 func rebind():
+	print(name, " scene_tree:")
+	print(get_tree_string())
+	# Failed
+	# animation_player = get_node("./AnimationPlayer")
+	# heart_texture = get_node("./Heart Texture")
+	# TODO:尝试获取克隆子节点失败，继续尝试
 	animation_player = $"AnimationPlayer"
 	heart_texture = $"Heart Texture"
 

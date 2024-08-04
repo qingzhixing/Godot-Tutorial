@@ -28,6 +28,7 @@ func generate_hearts(health: int):
 		var new_child_node = deep_duplicate(heart_template)
 		print("New instance child amount:", new_child_node.get_child_count(true))
 		var new_child = new_child_node as Heart
+		new_child.name = "Heart" + str(heart_id)
 		new_child.rebind()
 
 		new_child_node.visible = true
@@ -45,6 +46,9 @@ func generate_hearts(health: int):
 
 		add_child(new_child)
 
+func print_scene_tree():
+	print(get_tree_string())
+
 func set_health_display(health: int):
 	print("\nsetting health: ", health)
 	# return
@@ -57,6 +61,7 @@ func set_health_display(health: int):
 
 	clear_children()
 	generate_hearts(health)
+	print_scene_tree()
 	
 func _ready():
 	pass
