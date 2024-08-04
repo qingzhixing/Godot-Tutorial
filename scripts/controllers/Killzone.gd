@@ -10,6 +10,7 @@ var player = null
 const PlayerController = preload("res://scripts/controllers/PlayerController.gd")
 
 func _process(delta):
+	delta = delta #skip warning
 	if player == null: 
 		return
 	if player_exist && enable_damage:
@@ -22,6 +23,7 @@ func _on_timer_timeout():
 	enable_damage = true
 
 func _on_body_exited(body):
+	player = body as PlayerController
 	player_exist = false
 
 func _on_body_entered(body):

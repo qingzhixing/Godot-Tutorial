@@ -16,7 +16,6 @@ func handle_death():
 	restart_count_down.start()
 
 func handle_injury():
-	print("Game Manager injury")
 	ui.flash_screen()
 
 func _on_restart_count_down_timeout():
