@@ -4,6 +4,8 @@ extends Control
 #@export var animation_player: AnimationPlayer
 #@export var heart_texture: TextureRect
 
+# TODO:When instant Heart object,call these functions will lead to Errors
+#	animation_player is null
 func set_full():
 	print("full")
 	animation_player.play("full")
