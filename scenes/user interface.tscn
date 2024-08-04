@@ -1,12 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://72ddougrvrv8"]
+[gd_scene load_steps=6 format=3 uid="uid://72ddougrvrv8"]
 
 [ext_resource type="Script" path="res://scripts/ui/user interface.gd" id="1_giowk"]
 [ext_resource type="Texture2D" uid="uid://dqum6n7d6t6v3" path="res://assets/sprites/ui/ScreenFlash.png" id="1_m5gaj"]
+
+[sub_resource type="Animation" id="Animation_bl6v2"]
+resource_name = "screen_flash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenFlash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0525318, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.388235), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h07mf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScreenFlash:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_en2d7"]
+_data = {
+"RESET": SubResource("Animation_h07mf"),
+"screen_flash": SubResource("Animation_bl6v2")
+}
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_giowk")
 
 [node name="ScreenFlash" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,3 +60,8 @@ texture = ExtResource("1_m5gaj")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Hello World"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_en2d7")
+}

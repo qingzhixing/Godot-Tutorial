@@ -4,6 +4,7 @@ extends Node
 
 @onready var coin_label = $CoinLabel
 @onready var restart_count_down = $"Restart Count Down"
+@onready var ui = %UI
 
 func add_coin():
 	coins += 1
@@ -14,6 +15,9 @@ func handle_death():
 	Engine.time_scale = 0.3
 	restart_count_down.start()
 
+func handle_injury():
+	print("Game Manager injury")
+	ui.flash_screen()
 
 func _on_restart_count_down_timeout():
 	Engine.time_scale = 1.0

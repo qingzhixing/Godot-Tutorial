@@ -1,12 +1,12 @@
 extends CanvasLayer
-@onready var screen_flash = $ScreenFlash
+@onready var animation_player = $AnimationPlayer
 
-func set_screen_flash_transparent(transparent:float):
-		screen_flash.modulate.a = transparent
+func flash_screen():
+	animation_player.play("screen_flash")
+	print('animation_player.play')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_screen_flash_transparent(0)
 	pass # Replace with function body.
 
 

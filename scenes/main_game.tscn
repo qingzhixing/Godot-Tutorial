@@ -464,6 +464,7 @@ _data = {
 [node name="Main Game" type="Node2D"]
 
 [node name="UI" parent="." instance=ExtResource("1_7ycce")]
+unique_name_in_owner = true
 
 [node name="Game Manager" type="Node" parent="."]
 unique_name_in_owner = true

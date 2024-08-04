@@ -43,6 +43,7 @@ func handle_sprite(direction: float):
 func on_injured(damage: float):
 	print("Injured! damage: ", damage)
 	hurt_audio.play()
+	game_manager.handle_injury()
 	animation_player.play("injure")
 
 func start_injured_animation():
