@@ -484,6 +484,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Restart Count Down" type="Timer" parent="Game Manager"]
+wait_time = 0.8
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gknqk")
