@@ -462,6 +462,21 @@ _data = {
 
 [node name="Main Game" type="Node2D"]
 
+[node name="Interface" type="Control" parent="."]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Interface"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "test"
+
 [node name="Game Manager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_j2nav")
