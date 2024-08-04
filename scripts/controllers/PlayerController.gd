@@ -21,6 +21,7 @@ var injuring = false
 func _ready():
 	entity_data.on_died.connect(on_death)
 	entity_data.on_injured.connect(on_injured)
+	game_manager.set_heart_ui(entity_data.health)
 
 func handle_sprite(direction: float):
 	if is_died || injuring:
@@ -44,6 +45,7 @@ func on_injured(damage: float):
 	print("Injured! damage: ", damage)
 	hurt_audio.play()
 	game_manager.handle_injury()
+	game_manager.set_heart_ui(entity_data.health)
 	animation_player.play("injure")
 
 func start_injured_animation():

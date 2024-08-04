@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/user interface.gd" id="1_giowk"]
 [ext_resource type="Texture2D" uid="uid://dqum6n7d6t6v3" path="res://assets/sprites/ui/ScreenFlash.png" id="1_m5gaj"]
-[ext_resource type="PackedScene" uid="uid://dwni15vm688lh" path="res://prefabs/ui/heart.tscn" id="4_33od0"]
+[ext_resource type="Script" path="res://scripts/ui/Heart Container.gd" id="3_mp4cs"]
 
 [sub_resource type="Animation" id="Animation_h07mf"]
 length = 0.001
@@ -79,51 +79,8 @@ offset_bottom = 40.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 25
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Health Bar/MarginContainer"]
+[node name="Health Container" type="HBoxContainer" parent="Health Bar/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 55
 alignment = 1
-
-[node name="Heart" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart2" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart3" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart4" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart5" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart6" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart7" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart8" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart9" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart10" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Heart11" parent="Health Bar/MarginContainer/HBoxContainer" instance=ExtResource("4_33od0")]
-layout_mode = 2
-size_flags_horizontal = 4
+script = ExtResource("3_mp4cs")

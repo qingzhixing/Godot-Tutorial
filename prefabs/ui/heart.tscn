@@ -88,3 +88,4 @@ texture = ExtResource("2_04235")
 libraries = {
 "": SubResource("AnimationLibrary_74icb")
 }
+autoplay = "RESET"
