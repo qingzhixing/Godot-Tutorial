@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/controllers/PlayerController.gd" id="1_asgq7"]
 [ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/enity/player/knight.png" id="1_t34wm"]
-[ext_resource type="AudioStream" path="res://assets/sounds/jump.wav" id="3_00jqq"]
+[ext_resource type="AudioStream" uid="uid://dgky55ppitnyv" path="res://assets/sounds/jump.wav" id="3_00jqq"]
 [ext_resource type="AudioStream" uid="uid://b4wjrnb0pryoa" path="res://assets/sounds/hurt.wav" id="4_xus33"]
 [ext_resource type="AudioStream" uid="uid://dgd8c788klocn" path="res://assets/sounds/power_up.wav" id="5_pmspo"]
 

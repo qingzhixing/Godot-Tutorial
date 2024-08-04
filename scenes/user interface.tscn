@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://72ddougrvrv8"]
+[gd_scene load_steps=3 format=3 uid="uid://72ddougrvrv8"]
+
+[ext_resource type="Script" path="res://scripts/ui/user interface.gd" id="1_giowk"]
+[ext_resource type="Texture2D" uid="uid://dqum6n7d6t6v3" path="res://assets/sprites/ui/ScreenFlash.png" id="1_m5gaj"]
 
 [node name="UI" type="CanvasLayer"]
+script = ExtResource("1_giowk")
+
+[node name="ScreenFlash" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 384.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_m5gaj")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hello World"

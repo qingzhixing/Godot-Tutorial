@@ -1,6 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://cffbcdsd6qmuy"]
+[gd_scene load_steps=22 format=3 uid="uid://cffbcdsd6qmuy"]
 
 [ext_resource type="PackedScene" uid="uid://chdap5manlixu" path="res://prefabs/player/Player.tscn" id="1_6kt0q"]
+[ext_resource type="PackedScene" uid="uid://72ddougrvrv8" path="res://scenes/user interface.tscn" id="1_7ycce"]
 [ext_resource type="Script" path="res://scripts/controllers/Game Manager.gd" id="1_j2nav"]
 [ext_resource type="FontFile" uid="uid://mvakn1p08fdp" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_h56qn"]
 [ext_resource type="Texture2D" uid="uid://dvfldxbuormap" path="res://assets/sprites/map element/tiles/world_tileset.png" id="2_vfp26"]
@@ -462,20 +463,7 @@ _data = {
 
 [node name="Main Game" type="Node2D"]
 
-[node name="Interface" type="Control" parent="."]
-z_index = 10
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="Interface"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "test"
+[node name="UI" parent="." instance=ExtResource("1_7ycce")]
 
 [node name="Game Manager" type="Node" parent="."]
 unique_name_in_owner = true
