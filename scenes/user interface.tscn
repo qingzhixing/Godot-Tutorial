@@ -159,6 +159,7 @@ script = ExtResource("3_mp4cs")
 heart_template = NodePath("../../../Heart")
 
 [node name="Heart" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

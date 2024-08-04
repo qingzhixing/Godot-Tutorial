@@ -27,8 +27,8 @@ func generate_hearts(health: int):
 
 		var new_child_node = deep_duplicate(heart_template)
 		print("New instance child amount:", new_child_node.get_child_count(true))
-		new_child_node.set_script(Heart)
 		var new_child = new_child_node as Heart
+		new_child.rebind()
 
 		new_child_node.visible = true
 

@@ -1,6 +1,6 @@
 extends Control
-@onready var animation_player = $"AnimationPlayer"
-@onready var heart_texture = $"Heart Texture"
+var animation_player: AnimationPlayer
+var heart_texture: TextureRect
 #@export var animation_player: AnimationPlayer
 #@export var heart_texture: TextureRect
 
@@ -18,5 +18,11 @@ func set_empty():
 	print("empty")
 	animation_player.play("empty")
 
+func rebind():
+	animation_player = $"AnimationPlayer"
+	heart_texture = $"Heart Texture"
+
 func _init():
 	print("Heart Init!")
+	animation_player = $"AnimationPlayer"
+	heart_texture = $"Heart Texture"
