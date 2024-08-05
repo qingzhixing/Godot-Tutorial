@@ -3,18 +3,34 @@ const Heart = preload("res://scripts/ui/Heart.gd")
 const HeartResource = preload("res://prefabs/ui/heart.tscn")
 @export var heart_template: Control
 
-func deep_duplicate(node: Node) -> Node:
+func deep_duplicate(node: Node, id: int) -> Node:
 	var new_node = node.duplicate()
+	new_node.name = node.name + str(id)
+	clear_children(new_node)
 	for child in node.get_children(true):
-		new_node.add_child(child)
+		if child == null:
+			print("\nERROR! duplicating a NULL child!\n")
+		var new_child = child.duplicate()
+		new_child.name = child.name + str(id)
+		# new_child.get_parent().remove_child(new_child)
+		new_node.add_child(new_child)
 	return new_node
 
-func clear_children():
-	var childs = get_children(false)
+func clear_children(node: Node):
+	print("clearing children: " + node.name)
+
+	var childs = node.get_children(true)
 	print("child amount: ", childs.size())
+
+	print("before scene tree:")
+	print(node.get_tree_string())
+
 	if childs != null:
 		for child in childs:
-			child.queue_free()
+			child.free()
+
+	print("after scene tree:")
+	print(node.get_tree_string())
 
 func generate_hearts(health: int):
 	@warning_ignore("integer_division")
@@ -25,10 +41,9 @@ func generate_hearts(health: int):
 	for heart_id in range(heart_sum):
 		print("constructing heart id: ", heart_id)
 
-		var new_child_node = deep_duplicate(heart_template)
+		var new_child_node = deep_duplicate(heart_template, heart_id)
 		print("New instance child amount:", new_child_node.get_child_count(true))
 		var new_child = new_child_node as Heart
-		new_child.name = "Heart" + str(heart_id)
 		new_child.rebind()
 
 		new_child_node.visible = true
@@ -59,7 +74,7 @@ func set_health_display(health: int):
 		print("ERROR! Heart Template is null!")
 		return
 
-	clear_children()
+	clear_children(self)
 	generate_hearts(health)
 	print_scene_tree()
 	
