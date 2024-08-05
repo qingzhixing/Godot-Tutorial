@@ -13,3 +13,7 @@ func _process(delta):
 	else:
 		sprite_2d.flip_h = true
 	position.x += fly_speed * direction * delta
+
+func _on_area_entered(area):
+	print("Area entered! ",area.name)
+	pass # Replace with function body.

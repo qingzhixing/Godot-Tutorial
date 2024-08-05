@@ -52,6 +52,7 @@ move_right={
 2d_physics/layer_2="Item"
 2d_physics/layer_3="Player"
 2d_physics/layer_4="Enemy"
+2d_physics/layer_5="Weapon"
 
 [rendering]
 

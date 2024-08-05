@@ -7,11 +7,11 @@ var enable_damage = true
 var player_exist = false
 var player = null
 
-const PlayerController = preload("res://scripts/controllers/PlayerController.gd")
+const PlayerController = preload("res://scripts/entity/PlayerController.gd")
 
 @warning_ignore("unused_parameter")
 func _process(delta):
-	if player == null: 
+	if player == null:
 		return
 	if player_exist && enable_damage:
 		player.entity_data.take_damage(damage)

@@ -784,8 +784,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Arrow" parent="." instance=ExtResource("14_gxh0b")]
-position = Vector2(13, -8)
-direction = -1
+position = Vector2(79, -36)
 
 [connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="_on_restart_count_down_timeout"]
 [connection signal="body_entered" from="Killzone" to="Player" method="_on_killzone_body_entered"]

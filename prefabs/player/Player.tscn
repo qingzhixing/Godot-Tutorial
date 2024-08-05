@@ -1,10 +1,13 @@
 [gd_scene load_steps=50 format=3 uid="uid://chdap5manlixu"]
 
-[ext_resource type="Script" path="res://scripts/controllers/PlayerController.gd" id="1_asgq7"]
+[ext_resource type="Script" path="res://scripts/entity/PlayerController.gd" id="1_asgq7"]
 [ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/enity/player/knight.png" id="1_t34wm"]
 [ext_resource type="AudioStream" uid="uid://dgky55ppitnyv" path="res://assets/sounds/jump.wav" id="3_00jqq"]
 [ext_resource type="AudioStream" uid="uid://b4wjrnb0pryoa" path="res://assets/sounds/hurt.wav" id="4_xus33"]
 [ext_resource type="AudioStream" uid="uid://dgd8c788klocn" path="res://assets/sounds/power_up.wav" id="5_pmspo"]
+
+[sub_resource type="Animation" id="Animation_umbmp"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_g5f4g"]
 resource_name = "injure"
@@ -26,9 +29,6 @@ tracks/0/keys = {
 "method": &"end_injured_animation"
 }]
 }
-
-[sub_resource type="Animation" id="Animation_umbmp"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a34pn"]
 _data = {
