@@ -60,7 +60,7 @@ func set_health_display(health: int):
 	print("\nsetting health: ", health)
 	# return
 	if health < 0:
-		return
+		health = 0
 
 	clear_children(self)
 	generate_hearts(health)
