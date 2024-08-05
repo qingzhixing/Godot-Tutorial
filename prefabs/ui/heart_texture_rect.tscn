@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://chemdqvdc3u6a"]
+
+[ext_resource type="Texture2D" uid="uid://c4gejad6wxk1r" path="res://assets/sprites/ui/Sprite sheets/Icons/special icons/Heart_full.png" id="1_j0itg"]
+
+[node name="HeartTextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(16, 16)
+anchors_preset = -1
+anchor_right = 0.133
+anchor_bottom = 0.237
+offset_right = 0.639999
+offset_bottom = 0.039978
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_j0itg")
+metadata/_edit_use_anchors_ = true

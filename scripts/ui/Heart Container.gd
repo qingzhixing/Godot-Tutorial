@@ -1,5 +1,10 @@
 extends Container
 
+@export var heart_full_texture: Resource
+@export var heart_half_texture: Resource
+@export var heart_empty_texture: Resource
+@export var heart_texture_rect: PackedScene
+
 func deep_duplicate(node: Node, id: int) -> Node:
 	var new_node = node.duplicate()
 	new_node.name = node.name + str(id)
@@ -38,7 +43,12 @@ func generate_hearts(health: int):
 	for heart_id in range(heart_sum):
 		print("constructing heart id: ", heart_id)
 
-		var new_child: Control = Control.new()
+		var new_child: TextureRect = heart_texture_rect.instantiate()
+		new_child.name = "Heart_" + str(heart_id)
+		new_child.texture = heart_full_texture
+
+		if heart_id == heart_sum - 1 && last_half == 1:
+			new_child.texture = heart_half_texture
 		#codes here
 
 		add_child(new_child)

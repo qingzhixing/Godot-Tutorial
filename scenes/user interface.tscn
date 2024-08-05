@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://72ddougrvrv8"]
+[gd_scene load_steps=11 format=3 uid="uid://72ddougrvrv8"]
 
 [ext_resource type="Script" path="res://scripts/ui/user interface.gd" id="1_giowk"]
 [ext_resource type="Texture2D" uid="uid://dqum6n7d6t6v3" path="res://assets/sprites/ui/ScreenFlash.png" id="1_m5gaj"]
 [ext_resource type="Script" path="res://scripts/ui/Heart Container.gd" id="3_mp4cs"]
+[ext_resource type="Texture2D" uid="uid://c4gejad6wxk1r" path="res://assets/sprites/ui/Sprite sheets/Icons/special icons/Heart_full.png" id="5_kf3f8"]
+[ext_resource type="Texture2D" uid="uid://b3sbvo3iu48us" path="res://assets/sprites/ui/Sprite sheets/Icons/special icons/Heart_half.png" id="6_k15jp"]
+[ext_resource type="Texture2D" uid="uid://dfb3lcigkuxil" path="res://assets/sprites/ui/Sprite sheets/Icons/special icons/Heart_empty.png" id="7_6yfgh"]
+[ext_resource type="PackedScene" uid="uid://chemdqvdc3u6a" path="res://prefabs/ui/heart_texture_rect.tscn" id="7_qul57"]
 
 [sub_resource type="Animation" id="Animation_h07mf"]
 length = 0.001
@@ -74,13 +78,17 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Health Bar"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 25
+offset_right = 357.0
+offset_bottom = 17.0
+scale = Vector2(8, 8)
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 6
 
 [node name="Health Container" type="HBoxContainer" parent="Health Bar/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 55
-alignment = 1
+theme_override_constants/separation = -2
 script = ExtResource("3_mp4cs")
+heart_full_texture = ExtResource("5_kf3f8")
+heart_half_texture = ExtResource("6_k15jp")
+heart_empty_texture = ExtResource("7_6yfgh")
+heart_texture_rect = ExtResource("7_qul57")
