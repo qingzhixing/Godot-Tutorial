@@ -19,29 +19,29 @@ func deep_duplicate(node: Node, id: int) -> Node:
 	return new_node
 
 func clear_children(node: Node):
-	print("clearing children: " + node.name)
+	#print("clearing children: " + node.name)
 
 	var childs = node.get_children(true)
-	print("child amount: ", childs.size())
+	#print("child amount: ", childs.size())
 
-	print("before scene tree:")
-	print(node.get_tree_string())
+	#print("before scene tree:")
+	#print(node.get_tree_string())
 
 	if childs != null:
 		for child in childs:
 			child.free()
 
-	print("after scene tree:")
-	print(node.get_tree_string())
+	#print("after scene tree:")
+	#print(node.get_tree_string())
 
 func generate_hearts(health: int):
 	@warning_ignore("integer_division")
 	var heart_sum = (health + 1) / 2
 	var last_half = health % 2
 
-	print("Adding Children")
+	#print("Adding Children")
 	for heart_id in range(heart_sum):
-		print("constructing heart id: ", heart_id)
+		#print("constructing heart id: ", heart_id)
 
 		var new_child: TextureRect = heart_texture_rect.instantiate()
 		new_child.name = "Heart_" + str(heart_id)
@@ -54,17 +54,18 @@ func generate_hearts(health: int):
 		add_child(new_child)
 
 func print_scene_tree():
-	print(get_tree_string())
+	#print(get_tree_string())
+	pass
 
 func set_health_display(health: int):
-	print("\nsetting health: ", health)
+	#print("\nsetting health: ", health)
 	# return
 	if health < 0:
 		health = 0
 
 	clear_children(self)
 	generate_hearts(health)
-	print_scene_tree()
+	#print_scene_tree()
 	
 func _ready():
 	pass

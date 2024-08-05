@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://72ddougrvrv8"]
+[gd_scene load_steps=12 format=3 uid="uid://72ddougrvrv8"]
 
 [ext_resource type="Script" path="res://scripts/ui/user interface.gd" id="1_giowk"]
 [ext_resource type="Texture2D" uid="uid://dqum6n7d6t6v3" path="res://assets/sprites/ui/ScreenFlash.png" id="1_m5gaj"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b3sbvo3iu48us" path="res://assets/sprites/ui/Sprite sheets/Icons/special icons/Heart_half.png" id="6_k15jp"]
 [ext_resource type="Texture2D" uid="uid://dfb3lcigkuxil" path="res://assets/sprites/ui/Sprite sheets/Icons/special icons/Heart_empty.png" id="7_6yfgh"]
 [ext_resource type="PackedScene" uid="uid://chemdqvdc3u6a" path="res://prefabs/ui/heart_texture_rect.tscn" id="7_qul57"]
+[ext_resource type="Texture2D" uid="uid://2voy7akgy4m" path="res://assets/sprites/ui/minecraft-you-died-transparent.png" id="8_o4hu0"]
 
 [sub_resource type="Animation" id="Animation_h07mf"]
 length = 0.001
@@ -57,6 +58,18 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_m5gaj")
 expand_mode = 1
+
+[node name="Death Display" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 84.0
+offset_top = 84.0
+offset_right = -110.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_o4hu0")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 205.0

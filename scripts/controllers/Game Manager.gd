@@ -13,6 +13,7 @@ func add_coin():
 
 func handle_death():
 	Engine.time_scale = 0.3
+	ui.set_death_display(true)
 	restart_count_down.start()
 
 func handle_injury():
