@@ -20,20 +20,21 @@ func _init():
 	damage = 0
 	speed = 0
 
+func _ready():
+	timer.timeout.connect(enable_injury)
+	timer.one_shot = true
+
 func take_damage(_damage: int):
 	if !can_injure:
 		return
 	can_injure = false
 
 	timer.wait_time = injury_interval
-	timer.timeout.unbind()
-	timer.timeout.connect(enable_injury)
-	timer.one_shot = true
 	timer.start()
 	
 	health -= _damage
 	if !on_injured.is_null():
-		on_injured.emit(damage)
+		on_injured.emit(_damage)
 	if is_died() && !on_died.is_null():
 		on_died.emit()
 

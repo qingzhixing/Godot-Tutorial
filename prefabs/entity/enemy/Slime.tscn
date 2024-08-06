@@ -69,7 +69,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_hwsxf")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_green",
 "speed": 10.0
 }, {
 "frames": [{
@@ -86,7 +86,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_d8s4v")
 }],
 "loop": true,
-"name": &"injure",
+"name": &"injure_green",
 "speed": 10.0
 }, {
 "frames": [{
@@ -103,7 +103,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_do4wn")
 }],
 "loop": true,
-"name": &"wake",
+"name": &"wake_green",
 "speed": 10.0
 }]
 
@@ -124,8 +124,8 @@ speed = 30.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6uvvt")
-animation = &"idle"
-autoplay = "idle"
+animation = &"idle_green"
+autoplay = "idle_green"
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(0, -5)
@@ -151,7 +151,7 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_0j0a5")
 
 [node name="DamageArea" type="Area2D" parent="."]
-collision_layer = 8
+collision_layer = 32
 collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
