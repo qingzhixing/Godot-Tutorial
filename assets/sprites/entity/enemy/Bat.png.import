@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4wsnpoj7s5ws"
-path="res://.godot/imported/Basic Charakter Spritesheet.png-cfa78c7dc0cef6bc118fcf462746b93b.ctex"
+uid="uid://cn4m45l3as5oy"
+path="res://.godot/imported/Bat.png-d22e3d83a76d1ca5fd52cac420a29978.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enity/player/Basic Charakter Spritesheet.png"
-dest_files=["res://.godot/imported/Basic Charakter Spritesheet.png-cfa78c7dc0cef6bc118fcf462746b93b.ctex"]
+source_file="res://assets/sprites/entity/enemy/Bat.png"
+dest_files=["res://.godot/imported/Bat.png-d22e3d83a76d1ca5fd52cac420a29978.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0ihvd6f7kahj"
-path="res://.godot/imported/Free Chicken Sprites.png-0272e9c95ca18464b5afb5e0c8c78ed1.ctex"
+uid="uid://c3crsj4m8bljk"
+path="res://.godot/imported/slime_green.png-79eb0624ce9ce68a9c8802596adfaf6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enity/Free Chicken Sprites.png"
-dest_files=["res://.godot/imported/Free Chicken Sprites.png-0272e9c95ca18464b5afb5e0c8c78ed1.ctex"]
+source_file="res://assets/sprites/entity/enemy/slime_green.png"
+dest_files=["res://.godot/imported/slime_green.png-79eb0624ce9ce68a9c8802596adfaf6a.ctex"]
 
 [params]
 

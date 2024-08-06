@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djcwvwqtnh2ox"
-path="res://.godot/imported/PlayerSheet.png-2fd78563eb140965b7c6644d5f17f6d2.ctex"
+uid="uid://0ojn7y4j8jfy"
+path="res://.godot/imported/Basic Charakter Actions.png-506a9c1d678f4c7569a56ffdadad184b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enity/player/PlayerSheet.png"
-dest_files=["res://.godot/imported/PlayerSheet.png-2fd78563eb140965b7c6644d5f17f6d2.ctex"]
+source_file="res://assets/sprites/entity/player/Basic Charakter Actions.png"
+dest_files=["res://.godot/imported/Basic Charakter Actions.png-506a9c1d678f4c7569a56ffdadad184b.ctex"]
 
 [params]
 

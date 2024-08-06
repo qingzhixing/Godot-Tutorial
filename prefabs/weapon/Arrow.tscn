@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://oo6nh36betlc"]
 
 [ext_resource type="Script" path="res://scripts/weapon/ArrowController.gd" id="1_8t8dh"]
-[ext_resource type="Texture2D" uid="uid://dxpjlu0n44nyw" path="res://assets/sprites/enity/Arrow.png" id="1_ajqk7"]
+[ext_resource type="Texture2D" uid="uid://dxpjlu0n44nyw" path="res://assets/sprites/entity/Arrow.png" id="1_ajqk7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwlep"]
 size = Vector2(14, 3)

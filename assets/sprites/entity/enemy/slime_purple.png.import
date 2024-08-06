@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ojn7y4j8jfy"
-path="res://.godot/imported/Basic Charakter Actions.png-c1bc3a736615d6ab684534a39a46a9e9.ctex"
+uid="uid://dyxeky8wkdjwr"
+path="res://.godot/imported/slime_purple.png-c230beee0a6d444e3e8973f6615e645b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enity/player/Basic Charakter Actions.png"
-dest_files=["res://.godot/imported/Basic Charakter Actions.png-c1bc3a736615d6ab684534a39a46a9e9.ctex"]
+source_file="res://assets/sprites/entity/enemy/slime_purple.png"
+dest_files=["res://.godot/imported/slime_purple.png-c230beee0a6d444e3e8973f6615e645b.ctex"]
 
 [params]
 

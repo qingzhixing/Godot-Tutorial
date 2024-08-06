@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn4m45l3as5oy"
-path="res://.godot/imported/Bat.png-f249b029ac71deb51528958358ef0ef5.ctex"
+uid="uid://c0ihvd6f7kahj"
+path="res://.godot/imported/Free Chicken Sprites.png-7034cf4b6238d28b3902f7c5458e4773.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enity/enemy/Bat.png"
-dest_files=["res://.godot/imported/Bat.png-f249b029ac71deb51528958358ef0ef5.ctex"]
+source_file="res://assets/sprites/entity/Free Chicken Sprites.png"
+dest_files=["res://.godot/imported/Free Chicken Sprites.png-7034cf4b6238d28b3902f7c5458e4773.ctex"]
 
 [params]
 

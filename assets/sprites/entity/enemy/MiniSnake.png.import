@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sjunca668lm4"
-path="res://.godot/imported/Bullet.png-9a7a4bbe6da405bd5beb7e38d1b283fe.ctex"
+uid="uid://b8fvoebckcg51"
+path="res://.godot/imported/MiniSnake.png-d9616e89bb2691e9c1cc666f068bf8f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enity/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-9a7a4bbe6da405bd5beb7e38d1b283fe.ctex"]
+source_file="res://assets/sprites/entity/enemy/MiniSnake.png"
+dest_files=["res://.godot/imported/MiniSnake.png-d9616e89bb2691e9c1cc666f068bf8f1.ctex"]
 
 [params]
 

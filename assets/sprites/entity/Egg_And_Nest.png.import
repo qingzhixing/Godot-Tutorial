@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drqtust071id8"
-path="res://.godot/imported/knight.png-1c352735c1912eca279d515f2f4c022d.ctex"
+uid="uid://ctiqv15sb6gcj"
+path="res://.godot/imported/Egg_And_Nest.png-013029f4456cacdc7d2844401344011b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/enity/player/knight.png"
-dest_files=["res://.godot/imported/knight.png-1c352735c1912eca279d515f2f4c022d.ctex"]
+source_file="res://assets/sprites/entity/Egg_And_Nest.png"
+dest_files=["res://.godot/imported/Egg_And_Nest.png-013029f4456cacdc7d2844401344011b.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dwnaw3wg0vi6y"]
 
-[ext_resource type="Texture2D" uid="uid://c3crsj4m8bljk" path="res://assets/sprites/enity/enemy/slime_green.png" id="1_1t6uh"]
+[ext_resource type="Texture2D" uid="uid://c3crsj4m8bljk" path="res://assets/sprites/entity/enemy/slime_green.png" id="1_1t6uh"]
 [ext_resource type="Script" path="res://scripts/entity/SlimeController.gd" id="1_iuxm0"]
 [ext_resource type="PackedScene" uid="uid://shcgi3lkaxpd" path="res://prefabs/Killzone.tscn" id="2_ee6pu"]
 [ext_resource type="PackedScene" uid="uid://gv5lshcbnppn" path="res://prefabs/entity/entity_data.tscn" id="4_kfja5"]
@@ -72,6 +72,11 @@ animations = [{
 "name": &"idle_green",
 "speed": 10.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"idle_purple",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hm37i")
@@ -89,6 +94,11 @@ animations = [{
 "name": &"injure_green",
 "speed": 10.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"injure_purple",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3ij6u")
@@ -104,6 +114,11 @@ animations = [{
 }],
 "loop": true,
 "name": &"wake_green",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"wake_purple",
 "speed": 10.0
 }]
 
@@ -124,7 +139,7 @@ speed = 30.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6uvvt")
-animation = &"idle_green"
+animation = &"idle_purple"
 autoplay = "idle_green"
 
 [node name="RayCastRight" type="RayCast2D" parent="."]

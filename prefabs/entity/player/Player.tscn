@@ -1,7 +1,7 @@
 [gd_scene load_steps=51 format=3 uid="uid://chdap5manlixu"]
 
 [ext_resource type="Script" path="res://scripts/entity/PlayerController.gd" id="1_asgq7"]
-[ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/enity/player/knight.png" id="1_t34wm"]
+[ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/entity/player/knight.png" id="1_t34wm"]
 [ext_resource type="PackedScene" uid="uid://gv5lshcbnppn" path="res://prefabs/entity/entity_data.tscn" id="2_evsgg"]
 [ext_resource type="AudioStream" uid="uid://dgky55ppitnyv" path="res://assets/sounds/jump.wav" id="3_00jqq"]
 [ext_resource type="AudioStream" uid="uid://b4wjrnb0pryoa" path="res://assets/sounds/hurt.wav" id="4_xus33"]
