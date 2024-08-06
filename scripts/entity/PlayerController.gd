@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-const EntityData = Classes.EntityData
+
 const GameManager = preload("res://scripts/controllers/Game Manager.gd")
 
 @onready var animated_sprite = $AnimatedSprite2D
@@ -10,10 +10,10 @@ const GameManager = preload("res://scripts/controllers/Game Manager.gd")
 @onready var collision_shape = $CollisionShape2D
 @onready var hurt_audio = $Audios/Hurt
 @onready var jump_audio = $"Audios/Jump"
+@onready var entity_data = $EntityData
+
 @onready var game_manager = % "Game Manager" as GameManager
 
-var entity_data: EntityData = EntityData.construct(5, 1, 130)
-# @export var run_speed = 130.0
 @export var jump_velocity = -320.0
 var is_died = false
 var injuring = false

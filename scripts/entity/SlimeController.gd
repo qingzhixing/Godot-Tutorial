@@ -1,7 +1,6 @@
 extends Node2D
 
 const Direction = Constants.Direction
-const EntityData = Classes.EntityData
 
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
@@ -9,10 +8,11 @@ const EntityData = Classes.EntityData
 @onready var ray_cast_left_down = $RayCastLeftDown
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var killzone = $Killzone
+@onready var entity_data = $EntityData
 
 @export var speed = 20
 @export var attack_interval = 0.6
-var entity_data: EntityData = EntityData.construct(2, 1, 20)
+
 
 @export var direction: Direction
 

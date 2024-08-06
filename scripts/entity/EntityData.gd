@@ -1,5 +1,7 @@
 extends Node
 
+@onready var timer = $Timer
+
 @export var health: int
 @export var damage: int
 @export var speed: float
@@ -24,7 +26,6 @@ func take_damage(_damage: int):
 	can_injure = false
 
 	timer.wait_time = injury_interval
-	print("wait time: ", timer.wait_time)
 	timer.timeout.connect(enable_injury)
 	timer.one_shot = true
 	timer.start()
@@ -36,5 +37,4 @@ func take_damage(_damage: int):
 		on_died.emit()
 
 func enable_injury():
-	print("enable_injury()")
 	can_injure = true
