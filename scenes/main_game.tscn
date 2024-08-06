@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cffbcdsd6qmuy"]
+[gd_scene load_steps=24 format=3 uid="uid://cffbcdsd6qmuy"]
 
 [ext_resource type="PackedScene" uid="uid://chdap5manlixu" path="res://prefabs/entity/player/Player.tscn" id="1_6kt0q"]
 [ext_resource type="PackedScene" uid="uid://72ddougrvrv8" path="res://prefabs/ui/user interface.tscn" id="1_7ycce"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dwnaw3wg0vi6y" path="res://prefabs/entity/enemy/Slime.tscn" id="9_hj36n"]
 [ext_resource type="FontFile" uid="uid://7shymupe6dih" path="res://assets/fonts/PixelOperator8.ttf" id="10_hv6vj"]
 [ext_resource type="PackedScene" uid="uid://oo6nh36betlc" path="res://prefabs/weapon/Arrow.tscn" id="14_gxh0b"]
+[ext_resource type="PackedScene" uid="uid://cw2djjq4kd6y0" path="res://prefabs/entity/entity_range.tscn" id="15_bc56q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfiqy"]
 texture = ExtResource("2_vfp26")
@@ -460,6 +461,10 @@ _data = {
 "new_animation": SubResource("Animation_yhkgc")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gu0f2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4fwi"]
+
 [node name="Main Game" type="Node2D"]
 
 [node name="UI" parent="." instance=ExtResource("1_7ycce")]
@@ -786,6 +791,16 @@ autowrap_mode = 3
 
 [node name="Arrow" parent="." instance=ExtResource("14_gxh0b")]
 position = Vector2(79, -36)
+
+[node name="EntityRange" parent="Arrow" node_paths=PackedStringArray("attack_area_collition", "hit_area_collition") instance=ExtResource("15_bc56q")]
+attack_area_collition = NodePath("Attack")
+hit_area_collition = NodePath("Hit")
+
+[node name="Hit" type="CollisionShape2D" parent="Arrow/EntityRange"]
+shape = SubResource("CircleShape2D_gu0f2")
+
+[node name="Attack" type="CollisionShape2D" parent="Arrow/EntityRange"]
+shape = SubResource("RectangleShape2D_c4fwi")
 
 [connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="_on_restart_count_down_timeout"]
 [connection signal="body_entered" from="Killzone" to="Player" method="_on_killzone_body_entered"]
