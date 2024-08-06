@@ -10,15 +10,15 @@ const Direction = Constants.Direction
 @onready var killzone = $Killzone
 @onready var entity_data = $EntityData
 
-@export var speed = 20
-@export var attack_interval = 0.6
-
-
+@export_enum("green", "purple") var slime_type: String
 @export var direction: Direction
 
 func _ready():
 	killzone.damage = entity_data.damage
-	killzone.interval = attack_interval
+	if slime_type == "green":
+		animated_sprite.play("idle_green")
+	else:
+		animated_sprite.play("idle_purple")
 	pass
 
 func handle_direction():

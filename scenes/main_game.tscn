@@ -506,7 +506,6 @@ position_smoothing_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("5_i8xay")]
 damage = 1000.0
-interval = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(71, 144.56)
@@ -694,6 +693,7 @@ autoplay = "new_animation"
 [node name="Slime" parent="Enemies" instance=ExtResource("9_hj36n")]
 position = Vector2(136, -33)
 scale = Vector2(1, 1.00996)
+slime_type = "purple"
 direction = 1
 
 [node name="Slime4" parent="Enemies" instance=ExtResource("9_hj36n")]
@@ -703,6 +703,7 @@ scale = Vector2(1, 1.00996)
 [node name="Slime3" parent="Enemies" instance=ExtResource("9_hj36n")]
 position = Vector2(-194, 64)
 scale = Vector2(1, 1.00996)
+slime_type = "purple"
 
 [node name="Labels" type="Node" parent="."]
 

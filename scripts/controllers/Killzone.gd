@@ -1,7 +1,6 @@
 extends Area2D
 
 @export var damage: float
-@export var interval: float
 var player_exist = false
 var player = null
 

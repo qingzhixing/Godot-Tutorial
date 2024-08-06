@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://dwnaw3wg0vi6y"]
+[gd_scene load_steps=33 format=3 uid="uid://dwnaw3wg0vi6y"]
 
 [ext_resource type="Texture2D" uid="uid://c3crsj4m8bljk" path="res://assets/sprites/entity/enemy/slime_green.png" id="1_1t6uh"]
 [ext_resource type="Script" path="res://scripts/entity/SlimeController.gd" id="1_iuxm0"]
 [ext_resource type="PackedScene" uid="uid://shcgi3lkaxpd" path="res://prefabs/Killzone.tscn" id="2_ee6pu"]
+[ext_resource type="Texture2D" uid="uid://dyxeky8wkdjwr" path="res://assets/sprites/entity/enemy/slime_purple.png" id="4_3ub5t"]
 [ext_resource type="PackedScene" uid="uid://gv5lshcbnppn" path="res://prefabs/entity/entity_data.tscn" id="4_kfja5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ku4t"]
@@ -21,6 +22,22 @@ region = Rect2(48, 24, 24, 24)
 atlas = ExtResource("1_1t6uh")
 region = Rect2(72, 24, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_duaop"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53vq3"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dx5qx"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m384i"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(72, 24, 24, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hm37i"]
 atlas = ExtResource("1_1t6uh")
 region = Rect2(0, 48, 24, 24)
@@ -37,6 +54,22 @@ region = Rect2(48, 48, 24, 24)
 atlas = ExtResource("1_1t6uh")
 region = Rect2(72, 48, 24, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbphw"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(0, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcfsf"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70eec"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ntm1"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(72, 48, 24, 24)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ij6u"]
 atlas = ExtResource("1_1t6uh")
 region = Rect2(0, 0, 24, 24)
@@ -51,6 +84,22 @@ region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_do4wn"]
 atlas = ExtResource("1_1t6uh")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twqy0"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2dvf"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1go2"]
+atlas = ExtResource("4_3ub5t")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocxoj"]
+atlas = ExtResource("4_3ub5t")
 region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6uvvt"]
@@ -72,7 +121,19 @@ animations = [{
 "name": &"idle_green",
 "speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duaop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53vq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dx5qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m384i")
+}],
 "loop": true,
 "name": &"idle_purple",
 "speed": 10.0
@@ -94,7 +155,19 @@ animations = [{
 "name": &"injure_green",
 "speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbphw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcfsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70eec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ntm1")
+}],
 "loop": true,
 "name": &"injure_purple",
 "speed": 10.0
@@ -116,7 +189,19 @@ animations = [{
 "name": &"wake_green",
 "speed": 10.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twqy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2dvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1go2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ocxoj")
+}],
 "loop": true,
 "name": &"wake_purple",
 "speed": 10.0
@@ -130,6 +215,7 @@ size = Vector2(8, 10)
 
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_iuxm0")
+slime_type = "green"
 
 [node name="EntityData" parent="." instance=ExtResource("4_kfja5")]
 health = 2
@@ -139,7 +225,7 @@ speed = 30.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6uvvt")
-animation = &"idle_purple"
+animation = &"wake_purple"
 autoplay = "idle_green"
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
