@@ -26,6 +26,7 @@ func take_damage(_damage: int):
 	can_injure = false
 
 	timer.wait_time = injury_interval
+	timer.timeout.unbind()
 	timer.timeout.connect(enable_injury)
 	timer.one_shot = true
 	timer.start()
