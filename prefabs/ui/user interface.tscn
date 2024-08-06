@@ -93,15 +93,30 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 357.0
 offset_bottom = 17.0
-scale = Vector2(8, 8)
+scale = Vector2(4, 4)
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 6
 
 [node name="Health Container" type="HBoxContainer" parent="Health Bar/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = -2
+theme_override_constants/separation = -4
 script = ExtResource("3_mp4cs")
 heart_full_texture = ExtResource("5_kf3f8")
 heart_half_texture = ExtResource("6_k15jp")
 heart_empty_texture = ExtResource("7_6yfgh")
 heart_texture_rect = ExtResource("7_qul57")
+
+[node name="HeartTextureRect" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
+layout_mode = 2
+
+[node name="HeartTextureRect2" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
+layout_mode = 2
+
+[node name="HeartTextureRect3" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
+layout_mode = 2
+
+[node name="HeartTextureRect4" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
+layout_mode = 2
+
+[node name="HeartTextureRect5" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
+layout_mode = 2
