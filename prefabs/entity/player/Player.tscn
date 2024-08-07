@@ -1,11 +1,15 @@
-[gd_scene load_steps=51 format=3 uid="uid://chdap5manlixu"]
+[gd_scene load_steps=53 format=3 uid="uid://chdap5manlixu"]
 
 [ext_resource type="Script" path="res://scripts/entity/PlayerController.gd" id="1_asgq7"]
 [ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/entity/player/knight.png" id="1_t34wm"]
 [ext_resource type="PackedScene" uid="uid://gv5lshcbnppn" path="res://prefabs/entity/entity_data.tscn" id="2_evsgg"]
 [ext_resource type="AudioStream" uid="uid://dgky55ppitnyv" path="res://assets/sounds/jump.wav" id="3_00jqq"]
+[ext_resource type="PackedScene" uid="uid://cw2djjq4kd6y0" path="res://prefabs/entity/entity_range.tscn" id="3_m7lqm"]
 [ext_resource type="AudioStream" uid="uid://b4wjrnb0pryoa" path="res://assets/sounds/hurt.wav" id="4_xus33"]
 [ext_resource type="AudioStream" uid="uid://dgd8c788klocn" path="res://assets/sounds/power_up.wav" id="5_pmspo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6au27"]
+size = Vector2(11, 8)
 
 [sub_resource type="Animation" id="Animation_umbmp"]
 length = 0.001
@@ -356,6 +360,13 @@ script = ExtResource("1_asgq7")
 health = 5
 damage = 1
 speed = 130.0
+
+[node name="EntityRange" parent="." node_paths=PackedStringArray("hit_area_collition") instance=ExtResource("3_m7lqm")]
+hit_area_collition = NodePath("Hit Range")
+
+[node name="Hit Range" type="CollisionShape2D" parent="EntityRange"]
+position = Vector2(-0.5, -4)
+shape = SubResource("RectangleShape2D_6au27")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

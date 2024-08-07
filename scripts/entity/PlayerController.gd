@@ -11,6 +11,7 @@ const GameManager = preload("res://scripts/controllers/Game Manager.gd")
 @onready var hurt_audio = $Audios/Hurt
 @onready var jump_audio = $"Audios/Jump"
 @onready var entity_data = $EntityData
+@onready var entity_range = $EntityRange
 
 @onready var game_manager = % "Game Manager" as GameManager
 

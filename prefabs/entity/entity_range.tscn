@@ -6,5 +6,9 @@
 script = ExtResource("1_82qjv")
 
 [node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 64
 
 [node name="HitRange" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 32
