@@ -15,5 +15,5 @@ func _process(delta):
 	position.x += fly_speed * direction * delta
 
 func _on_area_entered(area):
-	print("Area entered! ",area.name)
+	# print("Area entered! ",area.name)
 	pass # Replace with function body.

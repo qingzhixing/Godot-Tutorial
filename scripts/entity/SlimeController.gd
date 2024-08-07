@@ -8,13 +8,13 @@ const Direction = Constants.Direction
 @onready var ray_cast_left_down = $RayCastLeftDown
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var killzone = $Killzone
-@onready var entity_data = $EntityData
+@onready var entity = $Entity
 
 @export_enum("green", "purple") var slime_type: String
 @export var direction: Direction
 
 func _ready():
-	killzone.damage = entity_data.damage
+	killzone.damage = entity.damage
 	if slime_type == "green":
 		animated_sprite.play("idle_green")
 	else:
@@ -35,4 +35,4 @@ func handle_direction():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	handle_direction()
-	position.x += direction * entity_data.speed * delta;
+	position.x += direction * entity.speed * delta;

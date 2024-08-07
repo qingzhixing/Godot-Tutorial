@@ -3,8 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://c3crsj4m8bljk" path="res://assets/sprites/entity/enemy/slime_green.png" id="1_1t6uh"]
 [ext_resource type="Script" path="res://scripts/entity/SlimeController.gd" id="1_iuxm0"]
 [ext_resource type="PackedScene" uid="uid://shcgi3lkaxpd" path="res://prefabs/Killzone.tscn" id="2_ee6pu"]
+[ext_resource type="PackedScene" uid="uid://gv5lshcbnppn" path="res://prefabs/entity/entity_controller.tscn" id="2_j5xly"]
 [ext_resource type="Texture2D" uid="uid://dyxeky8wkdjwr" path="res://assets/sprites/entity/enemy/slime_purple.png" id="4_3ub5t"]
-[ext_resource type="PackedScene" uid="uid://gv5lshcbnppn" path="res://prefabs/entity/entity_data.tscn" id="4_kfja5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p55rt"]
+size = Vector2(8, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ku4t"]
 atlas = ExtResource("1_1t6uh")
@@ -210,17 +213,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0j0a5"]
 size = Vector2(8, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p55rt"]
-size = Vector2(8, 10)
-
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_iuxm0")
 slime_type = "green"
 
-[node name="EntityData" parent="." instance=ExtResource("4_kfja5")]
+[node name="Entity" parent="." node_paths=PackedStringArray("attack_area_collition", "hit_area_collition") instance=ExtResource("2_j5xly")]
 health = 2
 damage = 1
 speed = 30.0
+attack_area_collition = NodePath("Attack Collision")
+hit_area_collition = NodePath("Hit Collision")
+
+[node name="Hit Collision" type="CollisionShape2D" parent="Entity"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_p55rt")
+
+[node name="Attack Collision" type="CollisionShape2D" parent="Entity"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_p55rt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
@@ -250,11 +260,3 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_0j0a5")
-
-[node name="DamageArea" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 20
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
-position = Vector2(0, -5)
-shape = SubResource("RectangleShape2D_p55rt")

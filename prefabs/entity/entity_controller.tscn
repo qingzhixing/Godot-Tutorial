@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://gv5lshcbnppn"]
+
+[ext_resource type="Script" path="res://scripts/entity/entity_controller.gd" id="1_dipiy"]
+
+[node name="EntityController" type="Node2D"]
+script = ExtResource("1_dipiy")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="EntityAreas" type="Node2D" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="EntityAreas"]
+collision_layer = 32
+collision_mask = 64
+
+[node name="HitArea" type="Area2D" parent="EntityAreas"]
+collision_layer = 64
+collision_mask = 32
+
+[connection signal="area_entered" from="EntityAreas/AttackArea" to="." method="attack_area_entered"]
+[connection signal="area_exited" from="EntityAreas/AttackArea" to="." method="attack_area_exited"]

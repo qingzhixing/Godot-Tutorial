@@ -1,10 +1,14 @@
 extends Node
 
 @export var coins: int = 0
+@export var debug_start_time_scale: float = 1
 
 @onready var coin_label = $CoinLabel
 @onready var restart_count_down = $"Restart Count Down"
 @onready var ui = %UI
+
+func _ready():
+	Engine.time_scale = debug_start_time_scale
 
 func add_coin():
 	coins += 1

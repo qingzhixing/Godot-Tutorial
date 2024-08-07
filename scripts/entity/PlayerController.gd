@@ -10,8 +10,7 @@ const GameManager = preload("res://scripts/controllers/Game Manager.gd")
 @onready var collision_shape = $CollisionShape2D
 @onready var hurt_audio = $Audios/Hurt
 @onready var jump_audio = $"Audios/Jump"
-@onready var entity_data = $EntityData
-@onready var entity_range = $EntityRange
+@onready var entity_data = $Entity
 
 @onready var game_manager = % "Game Manager" as GameManager
 
@@ -91,3 +90,4 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, entity_data.speed)
 
 	move_and_slide()
+
