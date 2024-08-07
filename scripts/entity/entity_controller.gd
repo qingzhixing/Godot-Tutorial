@@ -79,6 +79,9 @@ func attack_area_entered(_hit_area: Area2D):
 	pass
 
 func attack_area_exited(_hit_area: Area2D):
-	entered_attack_area.remove_at(entered_attack_area.find(_hit_area))
+	var index = entered_attack_area.find(_hit_area)
+	if index == -1:
+		return
+	entered_attack_area.remove_at(index)
 	# print("removed: ", _hit_area.name)
 	pass
