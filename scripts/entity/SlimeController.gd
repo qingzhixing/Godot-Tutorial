@@ -1,6 +1,7 @@
 extends Node2D
 
 const Direction = Constants.Direction
+const EntityController = preload("res://scripts/entity/entity_controller.gd")
 
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
@@ -32,7 +33,16 @@ func handle_direction():
 		animated_sprite.flip_h = true
 	pass
 
+func handle_damage():
+	for target in entity.entered_attack_area:
+		var parent = target.get_parent().get_parent()
+		if !parent is EntityController:
+			return
+		var target_entity = parent as EntityController
+		target_entity.take_damage(entity.damage)
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	handle_direction()
 	position.x += direction * entity.speed * delta;
+	handle_damage()

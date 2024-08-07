@@ -11,6 +11,8 @@ extends Node2D
 @export var injury_interval: float = 0.6
 @export var invincible: bool = false
 
+var entered_attack_area: Array
+
 @export_category("entity_range")
 @export var attack_area_collition: CollisionShape2D
 @export var hit_area_collition: CollisionShape2D
@@ -61,21 +63,22 @@ func take_damage(_damage: int):
 func enable_injury():
 	can_injure = true
 
-static var enter_attack_areas: Array
 func attack_area_entered(_hit_area: Area2D):
-	print("attack_area_entered: ", _hit_area.name)
-	print("    path: ", _hit_area.get_path())
-	print("    root: ", _hit_area.get_instance_id())
-	print("self area: ", hit_area.name)
-	print("    path: ", hit_area.get_path())
-	print("    root: ", hit_area.get_instance_id())
+	# print("attack_area_entered: ", _hit_area.name)
+	# print("    path: ", _hit_area.get_path())
+	# print("    root: ", _hit_area.get_instance_id())
+	# print("self area: ", hit_area.name)
+	# print("    path: ", hit_area.get_path())
+	# print("    root: ", hit_area.get_instance_id())
 
 	if _hit_area != hit_area:
-		enter_attack_areas.push_back(_hit_area)
-		print("new instance!")
-	else:
-		print("entered hit area is own hit area")
+		entered_attack_area.push_back(_hit_area)
+		# print("new instance!")
+	# else:
+		# print("entered hit area is own hit area")
 	pass
 
 func attack_area_exited(_hit_area: Area2D):
+	entered_attack_area.remove_at(entered_attack_area.find(_hit_area))
+	# print("removed: ", _hit_area.name)
 	pass
