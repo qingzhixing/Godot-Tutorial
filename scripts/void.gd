@@ -1,7 +1,5 @@
 extends Node2D
 
-const EntityController = preload("res://scripts/entity/entity_controller.gd")
-
 @onready var entity_controller = $EntityController
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

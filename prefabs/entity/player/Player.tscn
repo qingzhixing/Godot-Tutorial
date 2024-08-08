@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dbhxbhke3p0wy"]
+[gd_scene load_steps=54 format=3 uid="uid://dbhxbhke3p0wy"]
 
 [ext_resource type="Script" path="res://scripts/entity/PlayerController.gd" id="1_asgq7"]
 [ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/entity/player/knight.png" id="1_t34wm"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dgky55ppitnyv" path="res://assets/sounds/jump.wav" id="3_00jqq"]
 [ext_resource type="AudioStream" uid="uid://b4wjrnb0pryoa" path="res://assets/sounds/hurt.wav" id="4_xus33"]
 [ext_resource type="AudioStream" uid="uid://dgd8c788klocn" path="res://assets/sounds/power_up.wav" id="5_pmspo"]
+[ext_resource type="PackedScene" uid="uid://dbluhg42mqlci" path="res://prefabs/world_element/arrow_shooter.tscn" id="7_y6v68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6au27"]
 size = Vector2(11, 8)
@@ -388,6 +389,9 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -4)
 shape = SubResource("RectangleShape2D_irkgt")
+
+[node name="ArrowShooter" parent="." instance=ExtResource("7_y6v68")]
+position = Vector2(8, -7)
 
 [node name="Audios" type="Node" parent="."]
 

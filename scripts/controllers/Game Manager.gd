@@ -1,5 +1,7 @@
 extends Node
 
+class_name GameManager
+
 @export var coins: int = 0
 @export var debug_start_time_scale: float = 1
 

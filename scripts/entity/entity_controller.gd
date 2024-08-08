@@ -1,6 +1,7 @@
 extends Node2D
 
-const EntityController = preload("res://scripts/entity/entity_controller.gd")
+class_name EntityController
+
 const EntityType = _EntityType.EntityType
 
 @onready var timer = $Timer
@@ -52,9 +53,12 @@ func _ready():
 func is_died():
 	return !invincible && health <= 0;
 
-func take_damage(_damage: int):
-	if invincible || !can_injure || is_died():
-		return
+# return success
+func take_damage(_damage: int) -> bool:
+	if invincible || is_died():
+		return false
+	if !can_injure:
+		return true
 	can_injure = false
 
 	timer.wait_time = injury_interval
@@ -65,11 +69,14 @@ func take_damage(_damage: int):
 		on_injured.emit(_damage)
 	if is_died() && !on_died.is_null():
 		on_died.emit()
+	return true
 
 func enable_injury():
 	can_injure = true
 
 func attack_area_entered(_hit_area: Area2D):
+	if is_died():
+		return
 	if _hit_area != hit_area:
 		entered_attack_area.push_back(_hit_area)
 

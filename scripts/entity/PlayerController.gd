@@ -3,8 +3,8 @@ extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-const GameManager = preload("res://scripts/controllers/Game Manager.gd")
 const EntityType = _EntityType.EntityType
+const Direction = _Direction.Direction
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
@@ -12,6 +12,7 @@ const EntityType = _EntityType.EntityType
 @onready var hurt_audio = $Audios/Hurt
 @onready var jump_audio = $"Audios/Jump"
 @onready var entity = $Entity
+@onready var arrow_shooter = $ArrowShooter
 
 @onready var game_manager = % "Game Manager" as GameManager
 
@@ -38,6 +39,12 @@ func handle_sprite(direction: float):
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("run")
+
+func get_direction() -> Direction:
+	if animated_sprite.flip_h:
+		return Direction.BACKWARD
+	
+	return Direction.FORWARD
 
 func on_injured(damage: float):
 	print("Injured! damage: ", damage)
@@ -76,6 +83,8 @@ func _physics_process(delta):
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
 	
+	if Input.is_action_just_pressed("shoot"):
+		arrow_shooter.shoot(get_direction())
 
 	# Switch Animation
 	handle_sprite(direction)

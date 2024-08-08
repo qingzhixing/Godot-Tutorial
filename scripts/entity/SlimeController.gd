@@ -1,7 +1,6 @@
 extends Node2D
 
 const Direction = _Direction.Direction
-const EntityController = preload("res://scripts/entity/entity_controller.gd")
 
 @onready var ray_cast_right = $RayCastRight
 @onready var ray_cast_left = $RayCastLeft
@@ -14,7 +13,8 @@ const EntityController = preload("res://scripts/entity/entity_controller.gd")
 
 @export_enum("green", "purple") var slime_type: String
 @export var direction: Direction = Direction.FORWARD
-
+@export var died_free_delay: float = 0.3
+@export_range(0, 1) var died_alpha: float = 0.5
 var injuring: bool = false
 
 func _ready():
@@ -32,9 +32,9 @@ func handle_direction():
 	pass
 
 func start_injured_animation():
+	enemy_hurt.play()
 	injuring = true
 	animated_sprite.play("injure_" + slime_type)
-	enemy_hurt.play()
 	pass
 
 func end_injured_animation():
@@ -50,13 +50,17 @@ func handle_damage():
 
 @warning_ignore("unused_parameter")
 func on_injured(damage: float):
-	if entity.is_died():
-		return
 	animation_player.play("on_injured")
 	pass
 
 func on_died():
-	queue_free()
+	animated_sprite.modulate.a = died_alpha
+	var timer = Timer.new()
+	add_child(timer)
+	timer.one_shot = true
+	timer.wait_time = died_free_delay
+	timer.timeout.connect(self.queue_free)
+	timer.start()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
