@@ -26,6 +26,6 @@ func handle_injury():
 func set_heart_ui(health: int):
 	ui.set_health_display(health)
 
-func _on_restart_count_down_timeout():
+func restart_count_down_timeout():
 	Engine.time_scale = 1.0
 	get_tree().reload_current_scene()
