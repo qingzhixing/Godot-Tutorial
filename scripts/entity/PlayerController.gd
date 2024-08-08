@@ -15,7 +15,6 @@ const GameManager = preload("res://scripts/controllers/Game Manager.gd")
 @onready var game_manager = % "Game Manager" as GameManager
 
 @export var jump_velocity = -320.0
-var is_died = false
 var injuring = false
 
 func _ready():
@@ -24,7 +23,7 @@ func _ready():
 	game_manager.set_heart_ui(entity_data.health)
 
 func handle_sprite(direction: float):
-	if is_died || injuring:
+	if entity_data.is_died() || injuring:
 		return
 
 	if direction > 0:
@@ -49,7 +48,7 @@ func on_injured(damage: float):
 	animation_player.play("injure")
 
 func start_injured_animation():
-	if is_died:
+	if entity_data.is_died():
 		return
 	injuring = true
 	animated_sprite.play("injure")
@@ -59,7 +58,6 @@ func end_injured_animation():
 
 func on_death():
 	print("You Died!")
-	is_died = true
 	animated_sprite.play("death")
 	collision_shape.disabled = true
 	game_manager.handle_death()
@@ -90,4 +88,3 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, entity_data.speed)
 
 	move_and_slide()
-

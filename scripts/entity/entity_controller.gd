@@ -47,7 +47,7 @@ func is_died():
 	return !invincible && health <= 0;
 
 func take_damage(_damage: int):
-	if invincible || !can_injure:
+	if invincible || !can_injure || is_died():
 		return
 	can_injure = false
 

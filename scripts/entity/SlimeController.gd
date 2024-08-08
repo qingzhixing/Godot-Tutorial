@@ -8,14 +8,12 @@ const EntityController = preload("res://scripts/entity/entity_controller.gd")
 @onready var ray_cast_right_down = $RayCastRightDown
 @onready var ray_cast_left_down = $RayCastLeftDown
 @onready var animated_sprite = $AnimatedSprite2D
-@onready var killzone = $Killzone
 @onready var entity = $Entity
 
 @export_enum("green", "purple") var slime_type: String
 @export var direction: Direction
 
 func _ready():
-	killzone.damage = entity.damage
 	if slime_type == "green":
 		animated_sprite.play("idle_green")
 	else:

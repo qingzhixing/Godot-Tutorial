@@ -1,18 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://cffbcdsd6qmuy"]
+[gd_scene load_steps=20 format=3 uid="uid://cffbcdsd6qmuy"]
 
-[ext_resource type="PackedScene" uid="uid://chdap5manlixu" path="res://prefabs/entity/player/Player.tscn" id="1_6kt0q"]
+[ext_resource type="PackedScene" uid="uid://chdap5manlixu" path="res://assets/sprites/weapon/player/Player.tscn" id="1_6kt0q"]
 [ext_resource type="PackedScene" uid="uid://72ddougrvrv8" path="res://prefabs/ui/user interface.tscn" id="1_7ycce"]
 [ext_resource type="Script" path="res://scripts/controllers/Game Manager.gd" id="1_j2nav"]
 [ext_resource type="FontFile" uid="uid://mvakn1p08fdp" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_h56qn"]
 [ext_resource type="Texture2D" uid="uid://dvfldxbuormap" path="res://assets/sprites/map element/tiles/world_tileset.png" id="2_vfp26"]
 [ext_resource type="PackedScene" uid="uid://75kb0qbjvbfx" path="res://prefabs/platforms/GrassPlatform1.tscn" id="4_675y5"]
 [ext_resource type="PackedScene" uid="uid://350pwoo2hnrb" path="res://prefabs/item/Coin.tscn" id="4_bke0e"]
-[ext_resource type="PackedScene" uid="uid://shcgi3lkaxpd" path="res://prefabs/Killzone.tscn" id="5_i8xay"]
 [ext_resource type="PackedScene" uid="uid://mxh06vkddv1o" path="res://prefabs/platforms/SnowPlatform1.tscn" id="5_wgdfk"]
 [ext_resource type="PackedScene" uid="uid://3bqvx3ceouoa" path="res://prefabs/platforms/SandPlatform1.tscn" id="6_3c1jy"]
 [ext_resource type="PackedScene" uid="uid://dw1tr1h6bqrer" path="res://prefabs/platforms/GoldPlatform1.tscn" id="7_s232c"]
 [ext_resource type="PackedScene" uid="uid://dwnaw3wg0vi6y" path="res://prefabs/entity/enemy/Slime.tscn" id="9_hj36n"]
 [ext_resource type="FontFile" uid="uid://7shymupe6dih" path="res://assets/fonts/PixelOperator8.ttf" id="10_hv6vj"]
+[ext_resource type="PackedScene" uid="uid://bxswp2apv8gy2" path="res://prefabs/void.tscn" id="14_a0orr"]
 [ext_resource type="PackedScene" uid="uid://oo6nh36betlc" path="res://prefabs/weapon/Arrow.tscn" id="14_gxh0b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfiqy"]
@@ -420,8 +420,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 15
 sources/0 = SubResource("TileSetAtlasSource_gfiqy")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yuum7"]
-
 [sub_resource type="Animation" id="Animation_ilbmm"]
 length = 0.001
 tracks/0/type = "value"
@@ -503,13 +501,6 @@ offset = Vector2(0, 15)
 zoom = Vector2(4, 4)
 limit_bottom = 160
 position_smoothing_enabled = true
-
-[node name="Killzone" parent="." instance=ExtResource("5_i8xay")]
-damage = 1000.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(71, 144.56)
-shape = SubResource("WorldBoundaryShape2D_yuum7")
 
 [node name="Coins" type="Node" parent="."]
 
@@ -782,5 +773,7 @@ autowrap_mode = 3
 [node name="Arrow" parent="." instance=ExtResource("14_gxh0b")]
 position = Vector2(79, -36)
 
+[node name="Void" parent="." instance=ExtResource("14_a0orr")]
+position = Vector2(113, 163)
+
 [connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="_on_restart_count_down_timeout"]
-[connection signal="body_entered" from="Killzone" to="Player" method="_on_killzone_body_entered"]
