@@ -775,5 +775,3 @@ position = Vector2(79, -36)
 
 [node name="Void" parent="." instance=ExtResource("14_a0orr")]
 position = Vector2(113, 163)
-
-[connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="_on_restart_count_down_timeout"]

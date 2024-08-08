@@ -11,7 +11,7 @@ const EntityType = _EntityType.EntityType
 @onready var collision_shape = $CollisionShape2D
 @onready var hurt_audio = $Audios/Hurt
 @onready var jump_audio = $"Audios/Jump"
-@onready var entity_controller = $Entity
+@onready var entity = $Entity
 
 @onready var game_manager = % "Game Manager" as GameManager
 
@@ -19,12 +19,10 @@ const EntityType = _EntityType.EntityType
 var injuring = false
 
 func _ready():
-	entity_controller.on_died.connect(on_death)
-	entity_controller.on_injured.connect(on_injured)
-	game_manager.set_heart_ui(entity_controller.health)
+	game_manager.set_heart_ui(entity.health)
 
 func handle_sprite(direction: float):
-	if entity_controller.is_died() || injuring:
+	if entity.is_died() || injuring:
 		return
 
 	if direction > 0:
@@ -45,11 +43,11 @@ func on_injured(damage: float):
 	print("Injured! damage: ", damage)
 	hurt_audio.play()
 	game_manager.handle_injury()
-	game_manager.set_heart_ui(entity_controller.health)
+	game_manager.set_heart_ui(entity.health)
 	animation_player.play("injure")
 
 func start_injured_animation():
-	if entity_controller.is_died():
+	if entity.is_died():
 		return
 	injuring = true
 	animated_sprite.play("injure")
@@ -57,7 +55,7 @@ func start_injured_animation():
 func end_injured_animation():
 	injuring = false
 
-func on_death():
+func on_died():
 	print("You Died!")
 	animated_sprite.play("death")
 	collision_shape.disabled = true
@@ -84,17 +82,17 @@ func _physics_process(delta):
 
 	# Movement
 	if direction:
-		velocity.x = direction * entity_controller.speed
+		velocity.x = direction * entity.speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, entity_controller.speed)
+		velocity.x = move_toward(velocity.x, 0, entity.speed)
 
 	move_and_slide()
 
 func handle_attack():
-	for target in entity_controller.get_entered_attack_entities():
+	for target in entity.get_entered_attack_entities():
 		if target.entity_type != EntityType.ENEMY:
 			return
-		target.take_damage(entity_controller.damage)
+		target.take_damage(entity.damage)
 
 @warning_ignore("unused_parameter")
 func _process(delta):
