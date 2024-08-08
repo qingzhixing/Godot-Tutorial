@@ -687,6 +687,39 @@ slime_type = "purple"
 [node name="Slime2" parent="Enemies" instance=ExtResource("9_hj36n")]
 position = Vector2(184, -32)
 
+[node name="Slime4" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime5" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime6" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime7" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime8" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime9" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime10" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime11" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime12" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime13" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
+[node name="Slime14" parent="Enemies" instance=ExtResource("9_hj36n")]
+position = Vector2(184, -32)
+
 [node name="Slime3" parent="Enemies" instance=ExtResource("9_hj36n")]
 position = Vector2(359, 96)
 

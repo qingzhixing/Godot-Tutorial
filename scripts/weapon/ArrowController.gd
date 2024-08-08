@@ -15,6 +15,7 @@ func handle_attack():
 			return
 		if targert.take_damage(entity.damage):
 			queue_free()
+			return
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

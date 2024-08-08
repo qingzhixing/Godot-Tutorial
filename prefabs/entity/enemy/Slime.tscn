@@ -154,9 +154,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d8s4v")
 }],
-"loop": true,
+"loop": false,
 "name": &"injure_green",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -171,9 +171,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8ntm1")
 }],
-"loop": true,
+"loop": false,
 "name": &"injure_purple",
-"speed": 10.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -212,6 +212,7 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_1lkje"]
 resource_name = "on_injured"
+length = 0.5
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -219,7 +220,7 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.7),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -245,6 +246,7 @@ entity_type = 1
 health = 2
 damage = 1
 speed = 30.0
+injury_interval = 0.5
 attack_area_collition = NodePath("Attack Collision")
 hit_area_collition = NodePath("Hit Collision")
 
@@ -259,7 +261,7 @@ shape = SubResource("RectangleShape2D_p55rt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_6uvvt")
-animation = &"wake_purple"
+animation = &"injure_purple"
 autoplay = "idle_green"
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
