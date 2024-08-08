@@ -4,13 +4,14 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 const GameManager = preload("res://scripts/controllers/Game Manager.gd")
+const EntityType = _EntityType.EntityType
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var collision_shape = $CollisionShape2D
 @onready var hurt_audio = $Audios/Hurt
 @onready var jump_audio = $"Audios/Jump"
-@onready var entity_data = $Entity
+@onready var entity_controller = $Entity
 
 @onready var game_manager = % "Game Manager" as GameManager
 
@@ -18,12 +19,12 @@ const GameManager = preload("res://scripts/controllers/Game Manager.gd")
 var injuring = false
 
 func _ready():
-	entity_data.on_died.connect(on_death)
-	entity_data.on_injured.connect(on_injured)
-	game_manager.set_heart_ui(entity_data.health)
+	entity_controller.on_died.connect(on_death)
+	entity_controller.on_injured.connect(on_injured)
+	game_manager.set_heart_ui(entity_controller.health)
 
 func handle_sprite(direction: float):
-	if entity_data.is_died() || injuring:
+	if entity_controller.is_died() || injuring:
 		return
 
 	if direction > 0:
@@ -44,11 +45,11 @@ func on_injured(damage: float):
 	print("Injured! damage: ", damage)
 	hurt_audio.play()
 	game_manager.handle_injury()
-	game_manager.set_heart_ui(entity_data.health)
+	game_manager.set_heart_ui(entity_controller.health)
 	animation_player.play("injure")
 
 func start_injured_animation():
-	if entity_data.is_died():
+	if entity_controller.is_died():
 		return
 	injuring = true
 	animated_sprite.play("injure")
@@ -83,8 +84,18 @@ func _physics_process(delta):
 
 	# Movement
 	if direction:
-		velocity.x = direction * entity_data.speed
+		velocity.x = direction * entity_controller.speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, entity_data.speed)
+		velocity.x = move_toward(velocity.x, 0, entity_controller.speed)
 
 	move_and_slide()
+
+func handle_attack():
+	for target in entity_controller.get_entered_attack_entities():
+		if target.entity_type != EntityType.ENEMY:
+			return
+		target.take_damage(entity_controller.damage)
+
+@warning_ignore("unused_parameter")
+func _process(delta):
+	handle_attack()

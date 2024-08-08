@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dwnaw3wg0vi6y"]
+[gd_scene load_steps=33 format=3 uid="uid://dwnaw3wg0vi6y"]
 
 [ext_resource type="Texture2D" uid="uid://c3crsj4m8bljk" path="res://assets/sprites/entity/enemy/slime_green.png" id="1_1t6uh"]
 [ext_resource type="Script" path="res://scripts/entity/SlimeController.gd" id="1_iuxm0"]
@@ -209,6 +209,25 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="Animation" id="Animation_1lkje"]
+resource_name = "on_injured"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_teq75"]
+_data = {
+"on_injured": SubResource("Animation_1lkje")
+}
+
 [node name="Slime" type="Node2D"]
 script = ExtResource("1_iuxm0")
 slime_type = "green"
@@ -250,3 +269,8 @@ target_position = Vector2(-11, 6)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(0, -5)
 target_position = Vector2(-9, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_teq75")
+}

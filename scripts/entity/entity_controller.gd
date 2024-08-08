@@ -1,11 +1,7 @@
 extends Node2D
 
-enum EntityType {
-	PLAYER,
-	ENEMY,
-	STATIC,
-	WEAPON
-}
+const EntityController = preload("res://scripts/entity/entity_controller.gd")
+const EntityType = _EntityType.EntityType
 
 @onready var timer = $Timer
 @onready var attack_area = $EntityAreas/AttackArea
@@ -83,3 +79,13 @@ func attack_area_exited(_hit_area: Area2D):
 		return
 	entered_attack_area.remove_at(index)
 	pass
+
+func get_entered_attack_entities() -> Array[EntityController]:
+	var entity_array: Array[EntityController] = []
+	for target in entered_attack_area:
+		var parent = target.get_parent().get_parent()
+		if !parent is EntityController:
+			continue
+		var target_entity = parent as EntityController
+		entity_array.push_back(target_entity)
+	return entity_array

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://350pwoo2hnrb" path="res://prefabs/item/Coin.tscn" id="4_bke0e"]
 [ext_resource type="PackedScene" uid="uid://mxh06vkddv1o" path="res://prefabs/platforms/SnowPlatform1.tscn" id="5_wgdfk"]
 [ext_resource type="PackedScene" uid="uid://3bqvx3ceouoa" path="res://prefabs/platforms/SandPlatform1.tscn" id="6_3c1jy"]
-[ext_resource type="PackedScene" uid="uid://chdap5manlixu" path="res://prefabs/entity/player/Player.tscn" id="6_vql4s"]
+[ext_resource type="PackedScene" uid="uid://dbhxbhke3p0wy" path="res://prefabs/entity/player/Player.tscn" id="6_vql4s"]
 [ext_resource type="PackedScene" uid="uid://dw1tr1h6bqrer" path="res://prefabs/platforms/GoldPlatform1.tscn" id="7_s232c"]
 [ext_resource type="PackedScene" uid="uid://dwnaw3wg0vi6y" path="res://prefabs/entity/enemy/Slime.tscn" id="9_hj36n"]
 [ext_resource type="FontFile" uid="uid://7shymupe6dih" path="res://assets/fonts/PixelOperator8.ttf" id="10_hv6vj"]
@@ -681,9 +681,6 @@ autoplay = "new_animation"
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Slime4" parent="Enemies" instance=ExtResource("9_hj36n")]
-position = Vector2(142, -32)
-
 [node name="Slime" parent="Enemies" instance=ExtResource("9_hj36n")]
 position = Vector2(-199, 64)
 slime_type = "purple"
@@ -778,9 +775,5 @@ position = Vector2(79, -36)
 
 [node name="Void" parent="." instance=ExtResource("14_a0orr")]
 position = Vector2(113, 163)
-
-[node name="Slime" parent="." instance=ExtResource("9_hj36n")]
-position = Vector2(261, -32)
-direction = -1
 
 [connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="_on_restart_count_down_timeout"]

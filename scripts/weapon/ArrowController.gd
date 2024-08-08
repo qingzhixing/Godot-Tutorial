@@ -1,5 +1,5 @@
 extends Area2D
-const Direction = Constants.Direction
+const Direction = _Direction.Direction
 
 @onready var sprite_2d = $Sprite2D
 

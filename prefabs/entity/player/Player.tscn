@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://chdap5manlixu"]
+[gd_scene load_steps=52 format=3 uid="uid://dbhxbhke3p0wy"]
 
 [ext_resource type="Script" path="res://scripts/entity/PlayerController.gd" id="1_asgq7"]
 [ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/entity/player/knight.png" id="1_t34wm"]
