@@ -1,8 +1,18 @@
 extends Node2D
 
+enum EntityType {
+	PLAYER,
+	ENEMY,
+	STATIC,
+	WEAPON
+}
+
 @onready var timer = $Timer
 @onready var attack_area = $EntityAreas/AttackArea
 @onready var hit_area = $EntityAreas/HitArea
+
+@export_category("entity_type")
+@export var entity_type: EntityType = EntityType.STATIC
 
 @export_category("entity_data")
 @export var health: int
@@ -64,24 +74,12 @@ func enable_injury():
 	can_injure = true
 
 func attack_area_entered(_hit_area: Area2D):
-	# print("attack_area_entered: ", _hit_area.name)
-	# print("    path: ", _hit_area.get_path())
-	# print("    root: ", _hit_area.get_instance_id())
-	# print("self area: ", hit_area.name)
-	# print("    path: ", hit_area.get_path())
-	# print("    root: ", hit_area.get_instance_id())
-
 	if _hit_area != hit_area:
 		entered_attack_area.push_back(_hit_area)
-		# print("new instance!")
-	# else:
-		# print("entered hit area is own hit area")
-	pass
 
 func attack_area_exited(_hit_area: Area2D):
 	var index = entered_attack_area.find(_hit_area)
 	if index == -1:
 		return
 	entered_attack_area.remove_at(index)
-	# print("removed: ", _hit_area.name)
 	pass

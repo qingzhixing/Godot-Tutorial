@@ -11,7 +11,7 @@ const EntityController = preload("res://scripts/entity/entity_controller.gd")
 @onready var entity = $Entity
 
 @export_enum("green", "purple") var slime_type: String
-@export var direction: Direction
+@export var direction: Direction = Direction.FORWARD
 
 func _ready():
 	if slime_type == "green":
@@ -37,6 +37,8 @@ func handle_damage():
 		if !parent is EntityController:
 			return
 		var target_entity = parent as EntityController
+		if target_entity.entity_type != EntityController.EntityType.PLAYER:
+			return
 		target_entity.take_damage(entity.damage)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
