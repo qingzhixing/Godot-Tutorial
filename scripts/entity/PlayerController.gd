@@ -27,7 +27,7 @@ const Direction = _Direction.Direction
 var injuring = false
 
 func _ready():
-	game_manager.set_heart_ui(e ntity.health)
+	game_manager.set_heart_ui(entity.health)
 	game_manager.display_coin_amount(coin_amount)
 
 func handle_sprite(direction: float):

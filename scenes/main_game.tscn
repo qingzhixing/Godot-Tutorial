@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cffbcdsd6qmuy"]
+[gd_scene load_steps=20 format=3 uid="uid://cffbcdsd6qmuy"]
 
 [ext_resource type="PackedScene" uid="uid://72ddougrvrv8" path="res://prefabs/ui/user interface.tscn" id="1_7ycce"]
 [ext_resource type="Script" path="res://scripts/controllers/Game Manager.gd" id="1_j2nav"]
@@ -14,9 +14,6 @@
 [ext_resource type="FontFile" uid="uid://7shymupe6dih" path="res://assets/fonts/PixelOperator8.ttf" id="10_hv6vj"]
 [ext_resource type="PackedScene" uid="uid://bxswp2apv8gy2" path="res://prefabs/void.tscn" id="14_a0orr"]
 [ext_resource type="PackedScene" uid="uid://8b1cxw14qb1v" path="res://prefabs/world_element/puzzle_block.tscn" id="14_n2x7w"]
-[ext_resource type="PackedScene" uid="uid://dy387vts3mn0w" path="res://prefabs/platforms/SnowPlatform2.tscn" id="15_1y8dt"]
-[ext_resource type="PackedScene" uid="uid://dwj73h5w7n8a4" path="res://prefabs/platforms/GoldPlatform2.tscn" id="16_wi11g"]
-[ext_resource type="PackedScene" uid="uid://cmtt7nigr830x" path="res://prefabs/platforms/SandPlatform2.tscn" id="17_ml282"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfiqy"]
 texture = ExtResource("2_vfp26")
@@ -641,8 +638,6 @@ position = Vector2(920, -184)
 scale = Vector2(1, 1.00996)
 
 [node name="Player" parent="." instance=ExtResource("6_vql4s")]
-jump_velocity = null
-coin_amount = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -15.8422)
@@ -687,22 +682,16 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="Grass Platform 5" parent="Platforms" instance=ExtResource("4_675y5")]
-position = Vector2(272, -96)
+visible = false
+position = Vector2(296, -112)
 
-[node name="Sand Platform 2" parent="Platforms" instance=ExtResource("6_3c1jy")]
-position = Vector2(312, -128)
-
-[node name="Snow Platform 2" parent="Platforms" instance=ExtResource("15_1y8dt")]
+[node name="Grass Platform 6" parent="Platforms" instance=ExtResource("4_675y5")]
+visible = false
 position = Vector2(296, -160)
 
-[node name="Gold Platform 2" parent="Platforms" instance=ExtResource("16_wi11g")]
-position = Vector2(232, -144)
-
-[node name="Sand Platform 3" parent="Platforms" instance=ExtResource("17_ml282")]
-position = Vector2(344, -192)
-
-[node name="Gold Platform 3" parent="Platforms" instance=ExtResource("7_s232c")]
-position = Vector2(296, -216)
+[node name="Grass Platform 7" parent="Platforms" instance=ExtResource("4_675y5")]
+visible = false
+position = Vector2(296, -208)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -803,7 +792,6 @@ position = Vector2(113, 163)
 [node name="PuzzleBlock" parent="PuzzleBlocks" instance=ExtResource("14_n2x7w")]
 position = Vector2(488, -24)
 texture_type = 2
-interact_once = false
 
 [node name="PuzzleBlock2" parent="PuzzleBlocks" instance=ExtResource("14_n2x7w")]
 position = Vector2(184, 72)
@@ -851,6 +839,6 @@ interact_once = false
 
 [node name="PuzzleBlock14" parent="PuzzleBlocks" instance=ExtResource("14_n2x7w")]
 position = Vector2(296, -248)
-trophies = Array[PackedScene]([ExtResource("14_n2x7w")])
+interact_once = false
 
 [connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="restart_count_down_timeout"]
