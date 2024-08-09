@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://72ddougrvrv8"]
+[gd_scene load_steps=13 format=3 uid="uid://72ddougrvrv8"]
 
 [ext_resource type="Script" path="res://scripts/ui/user interface.gd" id="1_giowk"]
 [ext_resource type="Texture2D" uid="uid://dqum6n7d6t6v3" path="res://assets/sprites/ui/ScreenFlash.png" id="1_m5gaj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dfb3lcigkuxil" path="res://assets/sprites/ui/Sprite sheets/Icons/special icons/Heart_empty.png" id="7_6yfgh"]
 [ext_resource type="PackedScene" uid="uid://chemdqvdc3u6a" path="res://prefabs/ui/heart_texture_rect.tscn" id="7_qul57"]
 [ext_resource type="Texture2D" uid="uid://2voy7akgy4m" path="res://assets/sprites/ui/minecraft-you-died-transparent.png" id="8_o4hu0"]
+[ext_resource type="PackedScene" uid="uid://do1jc067fvac7" path="res://prefabs/ui/coin_display.tscn" id="9_llkel"]
 
 [sub_resource type="Animation" id="Animation_h07mf"]
 length = 0.001
@@ -112,11 +113,13 @@ layout_mode = 2
 [node name="HeartTextureRect2" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
 layout_mode = 2
 
-[node name="HeartTextureRect3" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
-layout_mode = 2
-
-[node name="HeartTextureRect4" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
-layout_mode = 2
-
-[node name="HeartTextureRect5" parent="Health Bar/MarginContainer/Health Container" instance=ExtResource("7_qul57")]
-layout_mode = 2
+[node name="Coin Display" parent="." instance=ExtResource("9_llkel")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 1.0
+offset_top = 84.0
+offset_right = 1.0
+offset_bottom = 84.0
+grow_horizontal = 1
+grow_vertical = 1

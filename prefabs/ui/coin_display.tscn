@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://do1jc067fvac7"]
+
+[ext_resource type="Script" path="res://scripts/ui/coin_display.gd" id="1_8xtfq"]
+[ext_resource type="Texture2D" uid="uid://dm2kc55iwvkdk" path="res://assets/sprites/item/coin_item.png" id="1_kdukp"]
+[ext_resource type="FontFile" uid="uid://7shymupe6dih" path="res://assets/fonts/PixelOperator8.ttf" id="2_wn86r"]
+
+[node name="Coin Display" type="Control"]
+layout_mode = 3
+anchor_right = 0.075
+anchor_bottom = 0.037037
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+script = ExtResource("1_8xtfq")
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinAmount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 144.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.984314, 0.768627, 0.105882, 1)
+theme_override_colors/font_shadow_color = Color(0.94902, 0.454902, 0.105882, 1)
+theme_override_colors/font_outline_color = Color(1, 0.94902, 0.105882, 1)
+theme_override_fonts/font = ExtResource("2_wn86r")
+theme_override_font_sizes/font_size = 16
+text = "99999"
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_kdukp")

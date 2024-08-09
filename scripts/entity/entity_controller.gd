@@ -17,6 +17,7 @@ const EntityType = _EntityType.EntityType
 @export var speed: float
 @export var injury_interval: float = 0.6
 @export var invincible: bool = false
+@export var allow_attack: bool = true
 
 var entered_attack_area: Array
 
@@ -67,15 +68,17 @@ func take_damage(_damage: int) -> bool:
 	health -= _damage
 	if !on_injured.is_null():
 		on_injured.emit(_damage)
-	if is_died() && !on_died.is_null():
-		on_died.emit()
+	if is_died():
+		allow_attack = false
+		if !on_died.is_null():
+			on_died.emit()
 	return true
 
 func enable_injury():
 	can_injure = true
 
 func attack_area_entered(_hit_area: Area2D):
-	if is_died():
+	if !allow_attack:
 		return
 	if _hit_area != hit_area:
 		entered_attack_area.push_back(_hit_area)

@@ -774,7 +774,7 @@ autowrap_mode = 3
 position = Vector2(113, 163)
 
 [node name="PuzzleBlock" parent="." instance=ExtResource("14_n2x7w")]
-position = Vector2(88, -72)
-trophies = Array[Resource]([ExtResource("4_bke0e")])
+position = Vector2(504, -24)
+trophies = Array[PackedScene]([ExtResource("4_bke0e")])
 
 [connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="restart_count_down_timeout"]

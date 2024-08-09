@@ -12,7 +12,6 @@ scale = Vector2(0.8, 0.8)
 script = ExtResource("1_8t8dh")
 
 [node name="EntityController" parent="." node_paths=PackedStringArray("attack_area_collition", "hit_area_collition") instance=ExtResource("2_6x7jm")]
-scale = Vector2(1, 1)
 health = -1
 damage = 1
 speed = 80.0
@@ -23,13 +22,15 @@ hit_area_collition = NodePath("Hit")
 
 [node name="Attack" type="CollisionShape2D" parent="EntityController"]
 position = Vector2(0, 0.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wwlep")
 
 [node name="Hit" type="CollisionShape2D" parent="EntityController"]
 position = Vector2(0, 0.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wwlep")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ajqk7")
+
+[node name="FreeTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="FreeTimer" to="." method="destruct"]

@@ -13,7 +13,8 @@ func _ready():
 
 func display_coin_amount(value: int):
 	coin_label.text = "You collected " + str(value) + " display_coins!"
-
+	ui.set_coin_display(value)
+	
 func handle_death():
 	Engine.time_scale = 0.3
 	ui.set_death_display(true)
