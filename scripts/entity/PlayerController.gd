@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name PlayerController
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -16,7 +18,12 @@ const Direction = _Direction.Direction
 
 @onready var game_manager = % "Game Manager" as GameManager
 
-@export var jump_velocity = -320.0
+@export_category("player_data")
+@export var jump_velocity: float = -320.0
+
+@export_category("in_game_data")
+@export var coin_amount: int = 0
+
 var injuring = false
 
 func _ready():
@@ -39,6 +46,10 @@ func handle_sprite(direction: float):
 		animated_sprite.play("idle")
 	else:
 		animated_sprite.play("run")
+
+func add_coin():
+	coin_amount += 1
+	game_manager.display_coin_amount(coin_amount)
 
 func get_direction() -> Direction:
 	if animated_sprite.flip_h:

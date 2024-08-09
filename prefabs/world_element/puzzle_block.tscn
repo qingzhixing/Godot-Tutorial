@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://8b1cxw14qb1v"]
+
+[ext_resource type="Script" path="res://scripts/world_element/puzzle_block.gd" id="1_8u06n"]
+[ext_resource type="Texture2D" uid="uid://d3n8exk80kecj" path="res://assets/sprites/map element/tiles/world_tilesets/Puzzle/mud_puzzle.png" id="2_j7iyg"]
+[ext_resource type="Texture2D" uid="uid://cc82cdktvctxw" path="res://assets/sprites/map element/tiles/world_tilesets/Puzzle/granite_puzzle.png" id="3_hdqum"]
+[ext_resource type="Texture2D" uid="uid://bqyik0go2bbdq" path="res://assets/sprites/map element/tiles/world_tilesets/Puzzle/sand_puzzle.png" id="4_ysbrr"]
+[ext_resource type="Texture2D" uid="uid://de0xf42056g52" path="res://assets/sprites/map element/tiles/world_tilesets/Puzzle/stone_puzzle.png" id="5_jpp6f"]
+[ext_resource type="Texture2D" uid="uid://dimucef3ouubh" path="res://assets/sprites/map element/tiles/world_tilesets/Ground/mud.png" id="6_jbnor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dvbn5"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5mc1"]
+size = Vector2(14, 1.5)
+
+[node name="PuzzleBlock" type="Node2D"]
+script = ExtResource("1_8u06n")
+mud_puzzle = ExtResource("2_j7iyg")
+granite_puzzle = ExtResource("3_hdqum")
+sand_puzlle = ExtResource("4_ysbrr")
+stone_puzzle = ExtResource("5_jpp6f")
+after_interaction_texture = ExtResource("6_jbnor")
+
+[node name="PuzzleSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_hdqum")
+
+[node name="BlockBody" type="StaticBody2D" parent="."]
+collision_mask = 13
+
+[node name="BlockCollision" type="CollisionShape2D" parent="BlockBody"]
+shape = SubResource("RectangleShape2D_dvbn5")
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+
+[node name="InteractCollision" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(-4.15238e-07, 7.75)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_k5mc1")
+
+[connection signal="body_entered" from="InteractArea" to="." method="interact_body_enter"]

@@ -60,6 +60,7 @@ shoot={
 2d_physics/layer_5="Weapon"
 2d_physics/layer_6="AttackArea"
 2d_physics/layer_7="HitArea"
+2d_physics/layer_8="Element Interact"
 
 [rendering]
 

@@ -2,7 +2,6 @@ extends Node
 
 class_name GameManager
 
-@export var coins: int = 0
 @export var debug_start_time_scale: float = 1
 
 @onready var coin_label = $CoinLabel
@@ -12,10 +11,8 @@ class_name GameManager
 func _ready():
 	Engine.time_scale = debug_start_time_scale
 
-func add_coin():
-	coins += 1
-	coin_label.text = "You collected " + str(coins) + " coins!"
-	print("Coins: ", coins)
+func display_coin_amount(value: int):
+	coin_label.text = "You collected " + str(value) + " display_coins!"
 
 func handle_death():
 	Engine.time_scale = 0.3
