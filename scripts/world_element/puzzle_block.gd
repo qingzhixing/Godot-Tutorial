@@ -3,6 +3,8 @@ extends Node2D
 const TextureType = _TextureType.TextureType
 
 @onready var puzzle_sprite = $PuzzleSprite
+@onready var interaction_success = $SFX/InteractionSuccess
+@onready var interaction_faild = $SFX/InteractionFaild
 
 @export_category("trophies")
 @export var trophies: Array[PackedScene]
@@ -38,7 +40,9 @@ func _ready():
 
 func interact_body_enter(body: Node2D):
 	if !interactable:
+		interaction_faild.play()
 		return
+	interaction_success.play()
 	interactable = false
 	puzzle_sprite.texture = after_interaction_texture
 	print("Interaction! From body: ", body.get_path())
