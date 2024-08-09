@@ -203,10 +203,12 @@ collision_mask = 4
 script = ExtResource("1_fxpeg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_phmre")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_kldt4")
 
 [node name="PickupAudio" type="AudioStreamPlayer2D" parent="."]
