@@ -778,6 +778,7 @@ position = Vector2(113, 163)
 [node name="PuzzleBlock" parent="PuzzleBlocks" instance=ExtResource("14_n2x7w")]
 position = Vector2(488, -24)
 texture_type = 2
+interact_once = false
 
 [node name="PuzzleBlock2" parent="PuzzleBlocks" instance=ExtResource("14_n2x7w")]
 position = Vector2(184, 72)

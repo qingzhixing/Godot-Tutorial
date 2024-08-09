@@ -12,7 +12,7 @@ const TextureType = _TextureType.TextureType
 
 @export_category("info")
 @export var texture_type: TextureType = TextureType.MUD
-@export var interactable: bool = true
+@export var interact_once: bool = true
 @export_range(0, 1) var interacted_white_rate = 0.8
 
 @export_category("Textures")
@@ -22,6 +22,8 @@ const TextureType = _TextureType.TextureType
 @export var stone_puzzle: Resource
 
 @export var after_interaction_texture: Resource
+
+var interactable: bool = true
 
 func switch_texture():
 	if texture_type == TextureType.MUD:
@@ -47,10 +49,11 @@ func interact_body_enter(body: Node2D):
 		return
 	interaction_success.play()
 	animation_player.play("interact")
-	interactable = false
-	puzzle_sprite.modulate.r *= interacted_white_rate
-	puzzle_sprite.modulate.g *= interacted_white_rate
-	puzzle_sprite.modulate.b *= interacted_white_rate
+	if interact_once:
+		interactable = false
+		puzzle_sprite.modulate.r *= interacted_white_rate
+		puzzle_sprite.modulate.g *= interacted_white_rate
+		puzzle_sprite.modulate.b *= interacted_white_rate
 
 	for trophy: PackedScene in trophies:
 		var trophy_instance: Node2D = trophy.instantiate() as Node2D
