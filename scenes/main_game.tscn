@@ -818,4 +818,10 @@ position = Vector2(888, -136)
 [node name="PuzzleBlock12" parent="PuzzleBlocks" instance=ExtResource("14_n2x7w")]
 position = Vector2(920, -136)
 
+[node name="PuzzleBlock" parent="." instance=ExtResource("14_n2x7w")]
+position = Vector2(200, -24)
+trophies = Array[PackedScene]([ExtResource("9_hj36n")])
+texture_type = 1
+interact_once = false
+
 [connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="restart_count_down_timeout"]

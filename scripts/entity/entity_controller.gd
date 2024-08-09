@@ -10,6 +10,7 @@ const EntityType = _EntityType.EntityType
 
 @export_category("entity_type")
 @export var entity_type: EntityType = EntityType.STATIC
+@export var attack_ignore_types: Array[EntityType]
 
 @export_category("entity_data")
 @export var health: int
@@ -19,7 +20,7 @@ const EntityType = _EntityType.EntityType
 @export var invincible: bool = false
 @export var allow_attack: bool = true
 
-var entered_attack_area: Array
+var entered_area_without_filter: Array
 
 @export_category("entity_range")
 @export var attack_area_collition: CollisionShape2D
@@ -81,21 +82,22 @@ func attack_area_entered(_hit_area: Area2D):
 	if !allow_attack:
 		return
 	if _hit_area != hit_area:
-		entered_attack_area.push_back(_hit_area)
+		entered_area_without_filter.push_back(_hit_area)
 
 func attack_area_exited(_hit_area: Area2D):
-	var index = entered_attack_area.find(_hit_area)
+	var index = entered_area_without_filter.find(_hit_area)
 	if index == -1:
 		return
-	entered_attack_area.remove_at(index)
+	entered_area_without_filter.remove_at(index)
 	pass
 
 func get_entered_attack_entities() -> Array[EntityController]:
 	var entity_array: Array[EntityController] = []
-	for target in entered_attack_area:
+	for target in entered_area_without_filter:
 		var parent = target.get_parent().get_parent()
 		if !parent is EntityController:
 			continue
 		var target_entity = parent as EntityController
-		entity_array.push_back(target_entity)
+		if attack_ignore_types.find(target_entity.entity_type) == -1:
+			entity_array.push_back(target_entity)
 	return entity_array

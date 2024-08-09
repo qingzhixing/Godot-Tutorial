@@ -9,6 +9,7 @@
 script = ExtResource("1_qfu61")
 
 [node name="EntityController" parent="." node_paths=PackedStringArray("attack_area_collition") instance=ExtResource("1_v8gaf")]
+attack_ignore_types = Array[int]([2])
 health = -1
 damage = 1000
 injury_interval = 0.0
