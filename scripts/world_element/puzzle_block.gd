@@ -5,6 +5,7 @@ const TextureType = _TextureType.TextureType
 @onready var puzzle_sprite = $PuzzleSprite
 @onready var interaction_success = $SFX/InteractionSuccess
 @onready var interaction_faild = $SFX/InteractionFaild
+@onready var animation_player = $AnimationPlayer
 
 @export_category("trophies")
 @export var trophies: Array[PackedScene]
@@ -12,6 +13,7 @@ const TextureType = _TextureType.TextureType
 @export_category("info")
 @export var texture_type: TextureType = TextureType.MUD
 @export var interactable: bool = true
+@export_range(0, 1) var interacted_white_rate = 0.8
 
 @export_category("Textures")
 @export var mud_puzzle: Resource
@@ -38,14 +40,18 @@ func switch_texture():
 func _ready():
 	switch_texture()
 
+@warning_ignore("unused_parameter")
 func interact_body_enter(body: Node2D):
 	if !interactable:
 		interaction_faild.play()
 		return
 	interaction_success.play()
+	animation_player.play("interact")
 	interactable = false
-	puzzle_sprite.texture = after_interaction_texture
-	print("Interaction! From body: ", body.get_path())
+	puzzle_sprite.modulate.r *= interacted_white_rate
+	puzzle_sprite.modulate.g *= interacted_white_rate
+	puzzle_sprite.modulate.b *= interacted_white_rate
+
 	for trophy: PackedScene in trophies:
 		var trophy_instance: Node2D = trophy.instantiate() as Node2D
 		trophy_instance.position.x = position.x

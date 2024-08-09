@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://8b1cxw14qb1v"]
+[gd_scene load_steps=15 format=3 uid="uid://8b1cxw14qb1v"]
 
 [ext_resource type="Script" path="res://scripts/world_element/puzzle_block.gd" id="1_8u06n"]
 [ext_resource type="Texture2D" uid="uid://d3n8exk80kecj" path="res://assets/sprites/map element/tiles/world_tilesets/Puzzle/mud_puzzle.png" id="2_j7iyg"]
@@ -9,6 +9,44 @@
 [ext_resource type="Texture2D" uid="uid://tlx00jtdolxk" path="res://assets/sprites/map element/tiles/world_tilesets/Ground/stone.png" id="7_2x74f"]
 [ext_resource type="AudioStream" uid="uid://br0gmmhjr4mnh" path="res://assets/sounds/coin.wav" id="8_egc7r"]
 [ext_resource type="AudioStream" uid="uid://bxtcq1mqh8a38" path="res://assets/sounds/tap.wav" id="9_kkn7v"]
+
+[sub_resource type="Animation" id="Animation_ltt0r"]
+resource_name = "interact"
+length = 0.03
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuzzleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.03),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5s8y3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuzzleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ndtu"]
+_data = {
+"RESET": SubResource("Animation_5s8y3"),
+"interact": SubResource("Animation_ltt0r")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dvbn5"]
 size = Vector2(16, 16)
@@ -27,6 +65,11 @@ after_interaction_texture = ExtResource("7_2x74f")
 
 [node name="PuzzleSprite" type="Sprite2D" parent="."]
 texture = ExtResource("3_hdqum")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4ndtu")
+}
 
 [node name="BlockBody" type="StaticBody2D" parent="."]
 collision_mask = 13
