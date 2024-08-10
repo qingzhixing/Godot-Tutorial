@@ -6,10 +6,16 @@ class_name GameManager
 
 @onready var coin_label = $CoinLabel
 @onready var restart_count_down = $"Restart Count Down"
-@onready var ui = %UI
+
+@export_category("bind_scenes")
+@export var ui: UserInterface
+@export var player: PlayerController
+@export_category("in-game data")
+@export var player_target_pos: Node2D
 
 func _ready():
 	Engine.time_scale = debug_start_time_scale
+	teleport_player()
 
 func display_coin_amount(value: int):
 	coin_label.text = "You collected " + str(value) + " display_coins!"
@@ -19,6 +25,9 @@ func handle_death():
 	Engine.time_scale = 0.3
 	ui.set_death_display(true)
 	restart_count_down.start()
+
+func teleport_player():
+	player.position = player_target_pos.position
 
 func handle_injury():
 	ui.flash_screen()

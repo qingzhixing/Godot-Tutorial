@@ -1,10 +1,11 @@
 extends CanvasLayer
 
+class_name UserInterface
+
 @onready var animation_player = $AnimationPlayer
 @onready var health_container = $"Health Bar/MarginContainer/Health Container"
 @onready var death_display = $"Death Display"
 @onready var coin_display = $"Coin Display"
-
 
 func flash_screen():
 	animation_player.play("screen_flash")
