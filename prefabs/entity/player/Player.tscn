@@ -408,5 +408,9 @@ bus = &"SFX"
 stream = ExtResource("5_pmspo")
 bus = &"SFX"
 
+[node name="JumpIntervalTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="on_died" from="Entity" to="." method="on_died"]
 [connection signal="on_injured" from="Entity" to="." method="on_injured"]
+[connection signal="timeout" from="JumpIntervalTimer" to="." method="set_interval_ok"]

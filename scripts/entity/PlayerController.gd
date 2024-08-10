@@ -15,18 +15,22 @@ const Direction = _Direction.Direction
 @onready var jump_audio = $"Audios/Jump"
 @onready var entity = $Entity
 @onready var arrow_shooter = $ArrowShooter
+@onready var jump_interval_timer = $JumpIntervalTimer
 
 @onready var game_manager = % "Game Manager" as GameManager
 
 @export_category("player_data")
 @export var jump_velocity: float = -320.0
+@export var jump_interval: float = 0.5
 
 @export_category("in_game_data")
 @export var coin_amount: int = 0
 
 var injuring = false
+var jump_interval_ok = true
 
 func _ready():
+	jump_interval_timer.wait_time = jump_interval
 	game_manager.set_heart_ui(entity.health)
 	game_manager.display_coin_amount(coin_amount)
 
@@ -80,6 +84,9 @@ func on_died():
 	collision_shape.disabled = true
 	game_manager.handle_death()
 
+func set_interval_ok():
+	jump_interval_ok = true
+
 func _physics_process(delta):
 
 	# Add the gravity.
@@ -87,10 +94,12 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle jump.
-	if Input.is_action_pressed("jump") and is_on_floor():
+	if jump_interval_ok && Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+		jump_interval_ok = false
+		jump_interval_timer.start()
 		jump_audio.play()
-
+		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
