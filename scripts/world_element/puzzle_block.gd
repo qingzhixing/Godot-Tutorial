@@ -57,6 +57,6 @@ func interact_body_enter(body: Node2D):
 
 	for trophy: PackedScene in trophies:
 		var trophy_instance: Node2D = trophy.instantiate() as Node2D
-		trophy_instance.position.x = position.x
-		trophy_instance.position.y = position.y - 8 # TODO:调整偏移
+		trophy_instance.position.x = position.x + 8
+		trophy_instance.position.y = position.y - 16 # TODO:调整偏移
 		get_tree().root.call_deferred("add_child", trophy_instance, 0.01)

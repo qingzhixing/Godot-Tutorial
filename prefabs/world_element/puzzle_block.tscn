@@ -10,6 +10,21 @@
 [ext_resource type="AudioStream" uid="uid://br0gmmhjr4mnh" path="res://assets/sounds/coin.wav" id="8_egc7r"]
 [ext_resource type="AudioStream" uid="uid://bxtcq1mqh8a38" path="res://assets/sounds/tap.wav" id="9_kkn7v"]
 
+[sub_resource type="Animation" id="Animation_5s8y3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PuzzleSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, -8)]
+}
+
 [sub_resource type="Animation" id="Animation_ltt0r"]
 resource_name = "interact"
 length = 0.03
@@ -24,22 +39,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.02, 0.03),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5s8y3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PuzzleSprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(8, -8), Vector2(8, -12), Vector2(8, -8)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ndtu"]
@@ -64,6 +64,7 @@ stone_puzzle = ExtResource("5_jpp6f")
 after_interaction_texture = ExtResource("7_2x74f")
 
 [node name="PuzzleSprite" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
 texture = ExtResource("3_hdqum")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -72,12 +73,14 @@ libraries = {
 }
 
 [node name="BlockBody" type="StaticBody2D" parent="."]
+position = Vector2(8, -8)
 collision_mask = 13
 
 [node name="BlockCollision" type="CollisionShape2D" parent="BlockBody"]
 shape = SubResource("RectangleShape2D_dvbn5")
 
 [node name="InteractArea" type="Area2D" parent="."]
+position = Vector2(8, -8)
 collision_layer = 128
 collision_mask = 4
 
