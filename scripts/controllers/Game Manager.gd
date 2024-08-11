@@ -23,6 +23,11 @@ func display_coin_amount(value: int):
 	
 func handle_death():
 	Engine.time_scale = 0.3
+
+	var music_script = MusicScene as Music
+	print("music_script is null ", music_script == null)
+	music_script.play_music(Music.MusicType.DEATH)
+
 	ui.set_death_display(true)
 	restart_count_down.start()
 

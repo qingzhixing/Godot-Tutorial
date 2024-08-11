@@ -17,7 +17,7 @@ config/icon="res://assets/icon/icon.svg"
 
 [autoload]
 
-Music="*res://scenes/Music.tscn"
+MusicScene="*res://scenes/MusicScene.tscn"
 
 [display]
 

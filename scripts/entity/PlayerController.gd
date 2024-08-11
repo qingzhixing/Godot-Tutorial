@@ -13,6 +13,8 @@ const Direction = _Direction.Direction
 @onready var collision_shape = $CollisionShape2D
 @onready var hurt_audio = $Audios/Hurt
 @onready var jump_audio = $"Audios/Jump"
+@onready var shoot_audio = $Audios/Shoot
+@onready var death_audio = $Audios/Death
 @onready var entity = $Entity
 @onready var arrow_shooter = $ArrowShooter
 @onready var jump_interval_timer = $JumpIntervalTimer
@@ -81,11 +83,20 @@ func end_injured_animation():
 func on_died():
 	print("You Died!")
 	animated_sprite.play("death")
+	death_audio.play()
 	collision_shape.disabled = true
 	game_manager.handle_death()
 
 func set_interval_ok():
 	jump_interval_ok = true
+
+func handle_jump():
+	# Handle jump.
+	if jump_interval_ok && Input.is_action_pressed("jump") and is_on_floor():
+		velocity.y = jump_velocity
+		jump_interval_ok = false
+		jump_interval_timer.start()
+		jump_audio.play()
 
 func _physics_process(delta):
 
@@ -93,12 +104,7 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Handle jump.
-	if jump_interval_ok && Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
-		jump_interval_ok = false
-		jump_interval_timer.start()
-		jump_audio.play()
+	handle_jump()
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -106,6 +112,8 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("shoot"):
 		arrow_shooter.shoot(get_direction())
+		shoot_audio.play()
+
 
 	# Switch Animation
 	handle_sprite(direction)

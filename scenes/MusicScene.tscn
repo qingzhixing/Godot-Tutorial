@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhretj85asud2"]
+
+[ext_resource type="Script" path="res://scripts/controllers/Music.gd" id="1_uip3d"]
+[ext_resource type="AudioStream" uid="uid://b33iho4pc0kh6" path="res://assets/music/time_for_adventure.mp3" id="2_j1q1i"]
+[ext_resource type="AudioStream" uid="uid://d3gk101o3o7nt" path="res://assets/music/musOnDeath.mp3" id="3_58jef"]
+
+[node name="MusicScene" type="Node" node_paths=PackedStringArray("common", "death")]
+script = ExtResource("1_uip3d")
+common = NodePath("common")
+death = NodePath("death")
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_58jef")
+
+[node name="common" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_j1q1i")
