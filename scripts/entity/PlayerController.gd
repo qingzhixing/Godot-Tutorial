@@ -19,7 +19,7 @@ const Direction = _Direction.Direction
 @onready var arrow_shooter = $ArrowShooter
 @onready var jump_interval_timer = $JumpIntervalTimer
 
-@onready var game_manager = % "Game Manager" as GameManager
+@onready var game_manager = % "GameManager" as GameManager
 
 @export_category("player_data")
 @export var jump_velocity: float = -320.0
@@ -84,7 +84,7 @@ func on_died():
 	print("You Died!")
 	animated_sprite.play("death")
 	death_audio.play()
-	collision_shape.disabled = true
+	#collision_shape.disabled = true
 	game_manager.handle_death()
 
 func set_interval_ok():

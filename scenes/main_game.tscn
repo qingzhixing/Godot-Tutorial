@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cffbcdsd6qmuy"]
 
 [ext_resource type="PackedScene" uid="uid://72ddougrvrv8" path="res://prefabs/ui/UserInterface.tscn" id="1_7ycce"]
-[ext_resource type="Script" path="res://scripts/controllers/Game Manager.gd" id="1_j2nav"]
+[ext_resource type="Script" path="res://scripts/controllers/GameManager.gd" id="1_j2nav"]
 [ext_resource type="FontFile" uid="uid://mvakn1p08fdp" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_h56qn"]
 [ext_resource type="Texture2D" uid="uid://dvfldxbuormap" path="res://assets/sprites/map element/tiles/world_tileset.png" id="2_vfp26"]
 [ext_resource type="PackedScene" uid="uid://75kb0qbjvbfx" path="res://prefabs/platforms/GrassPlatform1.tscn" id="4_675y5"]
@@ -463,16 +463,15 @@ _data = {
 
 [node name="Main Game" type="Node2D"]
 
-[node name="Game Manager" type="Node" parent="." node_paths=PackedStringArray("ui", "player", "player_target_pos")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("ui", "player")]
 unique_name_in_owner = true
 script = ExtResource("1_j2nav")
 ui = NodePath("UI")
 player = NodePath("../Player")
-player_target_pos = NodePath("PlayerTargetPos")
 
-[node name="UI" parent="Game Manager" instance=ExtResource("1_7ycce")]
+[node name="UI" parent="GameManager" instance=ExtResource("1_7ycce")]
 
-[node name="CoinLabel" type="Label" parent="Game Manager"]
+[node name="CoinLabel" type="Label" parent="GameManager"]
 offset_left = 636.0
 offset_top = -119.0
 offset_right = 820.0
@@ -485,11 +484,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Restart Count Down" type="Timer" parent="Game Manager"]
-wait_time = 0.8
+[node name="Restart Count Down" type="Timer" parent="GameManager"]
 one_shot = true
 
-[node name="PlayerTargetPos" type="Node2D" parent="Game Manager"]
+[node name="PlayerTargetPos" type="Node2D" parent="GameManager"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gknqk")
@@ -864,4 +862,4 @@ position = Vector2(704, 48)
 texture = ExtResource("15_5vb7c")
 offset = Vector2(8, -8)
 
-[connection signal="timeout" from="Game Manager/Restart Count Down" to="Game Manager" method="restart_count_down_timeout"]
+[connection signal="timeout" from="GameManager/Restart Count Down" to="GameManager" method="rebirth_timeout"]

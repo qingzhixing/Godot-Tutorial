@@ -11,6 +11,8 @@ enum MusicType {
 }
 
 func play_music(music: MusicType):
+	death.stop()
+	common.stop()
 	if music == MusicType.COMMON:
 		common.play()
 		return
