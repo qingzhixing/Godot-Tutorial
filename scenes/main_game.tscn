@@ -490,7 +490,6 @@ wait_time = 0.8
 one_shot = true
 
 [node name="PlayerTargetPos" type="Node2D" parent="Game Manager"]
-position = Vector2(0, -85)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_gknqk")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct1fswku8dtol"
-path="res://.godot/imported/Hills.png-00b15054165fb86182141a3aeeb5d79e.ctex"
+uid="uid://cock2qh60u7yr"
+path="res://.godot/imported/Warp.png-9eda651264a597e7244c3727411ca640.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/map element/tiles/Hills.png"
-dest_files=["res://.godot/imported/Hills.png-00b15054165fb86182141a3aeeb5d79e.ctex"]
+source_file="res://assets/sprites/map element/tiles/Warps/Warp.png"
+dest_files=["res://.godot/imported/Warp.png-9eda651264a597e7244c3727411ca640.ctex"]
 
 [params]
 
