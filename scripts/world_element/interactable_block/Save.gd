@@ -12,7 +12,10 @@ extends Node2D
 var save_state: bool = false
 
 func save_handler():
-	game_manager.set_spawn_pos(position)
+	var spawn_pos = position
+	spawn_pos.x += 8
+	spawn_pos.y -= 16
+	game_manager.set_spawn_pos(spawn_pos)
 	pass
 
 func set_off():
@@ -26,6 +29,11 @@ func set_on():
 	save_state = true
 	save_handler()
 	timer.start()
+	
+	
+@warning_ignore("unused_parameter")
+func on_interact(body: Node2D):
+	set_on()
 
 @warning_ignore("unused_parameter")
 func _process(delta):

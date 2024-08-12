@@ -87,6 +87,8 @@ func on_died():
 
 func respawn():
 	entity.respawn()
+	velocity = Vector2(0, 0)
+	game_manager.set_heart_ui(entity.current_health)
 
 func set_interval_ok():
 	jump_interval_ok = true

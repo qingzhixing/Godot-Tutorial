@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdtajo508sxr"]
+
+[ext_resource type="Script" path="res://scripts/world_element/interactable_block/Save.gd" id="1_bkr8f"]
+[ext_resource type="Texture2D" uid="uid://ofc3pxuhiryy" path="res://assets/sprites/map element/Saves/Save_0.png" id="2_2le8m"]
+[ext_resource type="Texture2D" uid="uid://cas21ychjt452" path="res://assets/sprites/map element/Saves/Save_1.png" id="3_pggf3"]
+[ext_resource type="PackedScene" uid="uid://c16yeish8cedo" path="res://prefabs/world_element/interactable_block/interactable_block.tscn" id="4_kbltt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0ild"]
+size = Vector2(14, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ddpbd"]
+size = Vector2(16, 16)
+
+[node name="Save" type="Node2D"]
+script = ExtResource("1_bkr8f")
+save_off = ExtResource("2_2le8m")
+save_on = ExtResource("3_pggf3")
+
+[node name="SaveSprite" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2le8m")
+
+[node name="SwitchOffTimer" type="Timer" parent="."]
+
+[node name="InteractableBlock" parent="." node_paths=PackedStringArray("block_collision", "interact_collision") instance=ExtResource("4_kbltt")]
+block_collision = NodePath("Block")
+interact_collision = NodePath("Area")
+
+[node name="Area" type="CollisionShape2D" parent="InteractableBlock"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_n0ild")
+
+[node name="Block" type="CollisionShape2D" parent="InteractableBlock"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_ddpbd")
+
+[connection signal="timeout" from="SwitchOffTimer" to="." method="set_off"]
+[connection signal="on_interact_signal" from="InteractableBlock" to="." method="on_interact"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cffbcdsd6qmuy"]
+[gd_scene load_steps=22 format=3 uid="uid://cffbcdsd6qmuy"]
 
 [ext_resource type="PackedScene" uid="uid://72ddougrvrv8" path="res://prefabs/ui/UserInterface.tscn" id="1_7ycce"]
 [ext_resource type="Script" path="res://scripts/controllers/GameManager.gd" id="1_j2nav"]
@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://dwnaw3wg0vi6y" path="res://prefabs/entity/enemy/Slime.tscn" id="9_hj36n"]
 [ext_resource type="FontFile" uid="uid://7shymupe6dih" path="res://assets/fonts/PixelOperator8.ttf" id="10_hv6vj"]
 [ext_resource type="PackedScene" uid="uid://bxswp2apv8gy2" path="res://prefabs/void.tscn" id="14_a0orr"]
-[ext_resource type="PackedScene" uid="uid://8b1cxw14qb1v" path="res://prefabs/world_element/puzzle_block.tscn" id="14_n2x7w"]
+[ext_resource type="PackedScene" uid="uid://8b1cxw14qb1v" path="res://prefabs/world_element/interactable_block/puzzle_block.tscn" id="14_n2x7w"]
 [ext_resource type="Texture2D" uid="uid://c6o2baayfbyh0" path="res://assets/sprites/map element/tiles/world_tilesets/Ground/breaked_stone.png" id="15_5vb7c"]
+[ext_resource type="PackedScene" uid="uid://bdtajo508sxr" path="res://prefabs/world_element/interactable_block/save.tscn" id="16_n0i5q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfiqy"]
 texture = ExtResource("2_vfp26")
@@ -610,11 +611,11 @@ position = Vector2(744, -40)
 scale = Vector2(1, 1.00996)
 
 [node name="Coin28" parent="Coins" instance=ExtResource("4_bke0e")]
-position = Vector2(840, -184)
+position = Vector2(840, -176)
 scale = Vector2(1, 1.00996)
 
 [node name="Coin29" parent="Coins" instance=ExtResource("4_bke0e")]
-position = Vector2(840, -168)
+position = Vector2(840, -160)
 scale = Vector2(1, 1.00996)
 
 [node name="Coin30" parent="Coins" instance=ExtResource("4_bke0e")]
@@ -862,5 +863,23 @@ position = Vector2(113, 163)
 position = Vector2(704, 48)
 texture = ExtResource("15_5vb7c")
 offset = Vector2(8, -8)
+
+[node name="Save" parent="." instance=ExtResource("16_n0i5q")]
+position = Vector2(-144, -48)
+
+[node name="Save2" parent="." instance=ExtResource("16_n0i5q")]
+position = Vector2(289, -288)
+
+[node name="Save3" parent="." instance=ExtResource("16_n0i5q")]
+position = Vector2(832, -192)
+
+[node name="Save4" parent="." instance=ExtResource("16_n0i5q")]
+position = Vector2(976, -16)
+
+[node name="Save5" parent="." instance=ExtResource("16_n0i5q")]
+position = Vector2(1152, -144)
+
+[node name="Save6" parent="." instance=ExtResource("16_n0i5q")]
+position = Vector2(1568, -128)
 
 [connection signal="timeout" from="GameManager/Restart Count Down" to="GameManager" method="respawn_timeout"]

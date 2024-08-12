@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c16yeish8cedo"]
+
+[ext_resource type="Script" path="res://scripts/world_element/interactable_block/interactable_block.gd" id="1_kga6a"]
+
+[node name="InteractableBlock" type="Node2D"]
+script = ExtResource("1_kga6a")
+
+[node name="BlockBody" type="StaticBody2D" parent="."]
+collision_mask = 13
+
+[node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+
+[connection signal="body_entered" from="InteractArea" to="." method="on_interact"]
