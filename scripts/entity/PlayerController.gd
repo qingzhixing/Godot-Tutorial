@@ -33,7 +33,7 @@ var jump_interval_ok = true
 
 func _ready():
 	jump_interval_timer.wait_time = jump_interval
-	game_manager.set_heart_ui(entity.health)
+	game_manager.set_heart_ui(entity.current_health)
 	game_manager.display_coin_amount(coin_amount)
 
 func handle_sprite(direction: float):
@@ -68,7 +68,7 @@ func on_injured(damage: float):
 	print("Injured! damage: ", damage)
 	hurt_audio.play()
 	game_manager.handle_injury()
-	game_manager.set_heart_ui(entity.health)
+	game_manager.set_heart_ui(entity.current_health)
 	animation_player.play("injure")
 
 func start_injured_animation():
@@ -84,8 +84,11 @@ func on_died():
 	print("You Died!")
 	animated_sprite.play("death")
 	death_audio.play()
-	#collision_shape.disabled = true
 	game_manager.handle_death()
+
+func respawn():
+	print("Player Respawn")
+	entity.respawn()
 
 func set_interval_ok():
 	jump_interval_ok = true

@@ -15,6 +15,9 @@ class_name GameManager
 @export_category("in-game data")
 @export var player_spawn_pos: Vector2
 
+var is_player_died = false
+var player_can_respawn = false
+
 func display_coin_amount(value: int):
 	coin_label.text = "You collected " + str(value) + " display_coins!"
 	ui.set_coin_display(value)
@@ -25,8 +28,17 @@ func handle_death():
 	music_script.play_music(Music.MusicType.DEATH)
 
 	ui.set_death_display(true)
-	print("Wait player press R..")
 	restart_count_down.start()
+
+func respawn_timeout():
+	player_can_respawn = true
+
+func respawn_player():
+	Engine.time_scale = 1.0
+	ui.set_death_display(false)
+	music_script.play_music(Music.MusicType.COMMON)
+	spawn_teleport_player()
+	player.respawn()
 
 func spawn_teleport_player():
 	player.position = player_spawn_pos
@@ -37,14 +49,6 @@ func handle_injury():
 func set_heart_ui(health: int):
 	ui.set_health_display(health)
 
-func rebirth_timeout():
-	Engine.time_scale = 1.0
-	ui.set_death_display(false)
-
-	music_script.play_music(Music.MusicType.COMMON)
-	
-	spawn_teleport_player()
-
 func set_spawn_pos(position: Vector2):
 	player_spawn_pos = position
 
@@ -52,3 +56,9 @@ func _ready():
 	Engine.time_scale = debug_start_time_scale
 	spawn_teleport_player()
 	music_script.play_music(Music.MusicType.COMMON)
+
+@warning_ignore("unused_parameter")
+func _process(delta):
+	if player_can_respawn && Input.is_action_just_pressed("respawn"):
+		player_can_respawn = false
+		respawn_player()

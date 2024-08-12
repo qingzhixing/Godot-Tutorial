@@ -11,6 +11,7 @@ death = NodePath("death")
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_58jef")
+volume_db = -5.0
 bus = &"Music"
 
 [node name="common" type="AudioStreamPlayer2D" parent="."]

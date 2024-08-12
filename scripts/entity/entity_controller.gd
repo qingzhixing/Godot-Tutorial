@@ -13,33 +13,32 @@ const EntityType = _EntityType.EntityType
 @export var attack_ignore_types: Array[EntityType]
 
 @export_category("entity_data")
-@export var health: int
-@export var damage: int
-@export var speed: float
+@export var initial_health: int = 0
+@export var damage: int = 0
+@export var speed: float = 0
 @export var injury_interval: float = 0.6
 @export var invincible: bool = false
-@export var allow_attack: bool = true
+@export var initial_allow_attack: bool = true
 
-var entered_area_without_filter: Array
+var allow_attack: bool = true
+var entered_area_without_filter: Array[Area2D]
 
 @export_category("entity_range")
 @export var attack_area_collition: CollisionShape2D
 @export var hit_area_collition: CollisionShape2D
 
 var can_injure = true
+var current_health: int
 
 signal on_died
 signal on_injured(damage: float)
 
-	
-func _init():
-	health = 0
-	damage = 0
-	speed = 0
-
 func _ready():
 	timer.timeout.connect(enable_injury)
 	timer.one_shot = true
+	
+	current_health = initial_health
+	allow_attack = initial_allow_attack
 
 	if attack_area_collition == null:
 		print("WARNING! attack_area_collition is null")
@@ -52,8 +51,13 @@ func _ready():
 		hit_area_collition.get_parent().remove_child(hit_area_collition)
 		hit_area.add_child(hit_area_collition)
 
+func respawn():
+	print("Entity Respawn")
+	current_health = initial_health
+	allow_attack = initial_allow_attack
+
 func is_died():
-	return !invincible && health <= 0;
+	return !invincible && current_health <= 0;
 
 # return success
 func take_damage(_damage: int) -> bool:
@@ -66,7 +70,7 @@ func take_damage(_damage: int) -> bool:
 	timer.wait_time = injury_interval
 	timer.start()
 	
-	health -= _damage
+	current_health -= _damage
 	if !on_injured.is_null():
 		on_injured.emit(_damage)
 	if is_died():

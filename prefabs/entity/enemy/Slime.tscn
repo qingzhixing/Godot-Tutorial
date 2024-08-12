@@ -243,7 +243,7 @@ died_free_delay = 0.5
 
 [node name="Entity" parent="." node_paths=PackedStringArray("attack_area_collition", "hit_area_collition") instance=ExtResource("2_j5xly")]
 entity_type = 1
-health = 2
+initial_health = 2
 damage = 1
 speed = 30.0
 injury_interval = 0.5

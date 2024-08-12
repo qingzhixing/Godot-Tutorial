@@ -862,4 +862,4 @@ position = Vector2(704, 48)
 texture = ExtResource("15_5vb7c")
 offset = Vector2(8, -8)
 
-[connection signal="timeout" from="GameManager/Restart Count Down" to="GameManager" method="rebirth_timeout"]
+[connection signal="timeout" from="GameManager/Restart Count Down" to="GameManager" method="respawn_timeout"]
