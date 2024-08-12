@@ -5,7 +5,7 @@
 [node name="EntityController" type="Node2D"]
 script = ExtResource("1_dipiy")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="EnableInjuryTimer" type="Timer" parent="."]
 
 [node name="EntityAreas" type="Node2D" parent="."]
 

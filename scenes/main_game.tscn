@@ -485,6 +485,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Restart Count Down" type="Timer" parent="GameManager"]
+wait_time = 0.3
 one_shot = true
 
 [node name="PlayerTargetPos" type="Node2D" parent="GameManager"]

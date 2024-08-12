@@ -4,7 +4,7 @@ class_name EntityController
 
 const EntityType = _EntityType.EntityType
 
-@onready var timer = $Timer
+@onready var enable_injury_timer = $EnableInjuryTimer
 @onready var attack_area = $EntityAreas/AttackArea
 @onready var hit_area = $EntityAreas/HitArea
 
@@ -34,9 +34,12 @@ signal on_died
 signal on_injured(damage: float)
 
 func _ready():
-	timer.timeout.connect(enable_injury)
-	timer.one_shot = true
+	enable_injury_timer.timeout.connect(enable_injury)
+	enable_injury_timer.one_shot = true
 	
+	can_injure = false
+	enable_injury_timer.start()
+
 	current_health = initial_health
 	allow_attack = initial_allow_attack
 
@@ -52,7 +55,8 @@ func _ready():
 		hit_area.add_child(hit_area_collition)
 
 func respawn():
-	print("Entity Respawn")
+	can_injure = false
+	enable_injury_timer.start()
 	current_health = initial_health
 	allow_attack = initial_allow_attack
 
@@ -67,8 +71,8 @@ func take_damage(_damage: int) -> bool:
 		return true
 	can_injure = false
 
-	timer.wait_time = injury_interval
-	timer.start()
+	enable_injury_timer.wait_time = injury_interval
+	enable_injury_timer.start()
 	
 	current_health -= _damage
 	if !on_injured.is_null():

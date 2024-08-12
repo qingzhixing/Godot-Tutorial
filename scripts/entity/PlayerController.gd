@@ -64,8 +64,8 @@ func get_direction() -> Direction:
 	
 	return Direction.FORWARD
 
+@warning_ignore("unused_parameter")
 func on_injured(damage: float):
-	print("Injured! damage: ", damage)
 	hurt_audio.play()
 	game_manager.handle_injury()
 	game_manager.set_heart_ui(entity.current_health)
@@ -81,13 +81,11 @@ func end_injured_animation():
 	injuring = false
 
 func on_died():
-	print("You Died!")
 	animated_sprite.play("death")
 	death_audio.play()
 	game_manager.handle_death()
 
 func respawn():
-	print("Player Respawn")
 	entity.respawn()
 
 func set_interval_ok():
