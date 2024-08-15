@@ -1,11 +1,10 @@
-[gd_scene load_steps=56 format=3 uid="uid://dbhxbhke3p0wy"]
+[gd_scene load_steps=55 format=3 uid="uid://dbhxbhke3p0wy"]
 
 [ext_resource type="Script" path="res://scripts/entity/PlayerController.gd" id="1_asgq7"]
 [ext_resource type="Texture2D" uid="uid://drqtust071id8" path="res://assets/sprites/entity/player/knight.png" id="1_t34wm"]
 [ext_resource type="PackedScene" uid="uid://gv5lshcbnppn" path="res://prefabs/entity/entity_controller.tscn" id="2_7n83c"]
 [ext_resource type="AudioStream" uid="uid://dgky55ppitnyv" path="res://assets/sounds/jump.wav" id="3_00jqq"]
 [ext_resource type="AudioStream" uid="uid://b4wjrnb0pryoa" path="res://assets/sounds/hurt.wav" id="4_xus33"]
-[ext_resource type="AudioStream" uid="uid://dgd8c788klocn" path="res://assets/sounds/power_up.wav" id="5_pmspo"]
 [ext_resource type="PackedScene" uid="uid://dbluhg42mqlci" path="res://prefabs/world_element/arrow_shooter.tscn" id="7_y6v68"]
 [ext_resource type="AudioStream" uid="uid://b7xhnu10hlmli" path="res://assets/sounds/Shoot.wav" id="8_n56fi"]
 [ext_resource type="AudioStream" uid="uid://dtxhow4vcr7vc" path="res://assets/sounds/Death.wav" id="9_5c6vk"]
@@ -404,10 +403,6 @@ bus = &"SFX"
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="Audios"]
 stream = ExtResource("4_xus33")
-bus = &"SFX"
-
-[node name="Power Up" type="AudioStreamPlayer2D" parent="Audios"]
-stream = ExtResource("5_pmspo")
 bus = &"SFX"
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="Audios"]

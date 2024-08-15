@@ -7,6 +7,7 @@ extends Node2D
 @onready var timer = $SwitchOffTimer
 @onready var sprite = $SaveSprite
 @onready var game_manager = %GameManager as GameManager
+@onready var save_success = $"Save Success"
 
 
 var save_state: bool = false
@@ -34,6 +35,7 @@ func set_on():
 @warning_ignore("unused_parameter")
 func on_interact(body: Node2D):
 	set_on()
+	save_success.play()
 
 @warning_ignore("unused_parameter")
 func _process(delta):

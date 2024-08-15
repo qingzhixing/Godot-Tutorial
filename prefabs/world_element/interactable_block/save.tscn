@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdtajo508sxr"]
+[gd_scene load_steps=8 format=3 uid="uid://bdtajo508sxr"]
 
 [ext_resource type="Script" path="res://scripts/world_element/interactable_block/Save.gd" id="1_bkr8f"]
 [ext_resource type="Texture2D" uid="uid://ofc3pxuhiryy" path="res://assets/sprites/map element/Saves/Save_0.png" id="2_2le8m"]
 [ext_resource type="Texture2D" uid="uid://cas21ychjt452" path="res://assets/sprites/map element/Saves/Save_1.png" id="3_pggf3"]
 [ext_resource type="PackedScene" uid="uid://c16yeish8cedo" path="res://prefabs/world_element/interactable_block/interactable_block.tscn" id="4_kbltt"]
+[ext_resource type="AudioStream" uid="uid://dgd8c788klocn" path="res://assets/sounds/power_up.wav" id="5_4nbx3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0ild"]
 size = Vector2(14, 1)
@@ -34,6 +35,10 @@ shape = SubResource("RectangleShape2D_n0ild")
 [node name="Block" type="CollisionShape2D" parent="InteractableBlock"]
 position = Vector2(8, -8)
 shape = SubResource("RectangleShape2D_ddpbd")
+
+[node name="Save Success" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4nbx3")
+bus = &"SFX"
 
 [connection signal="timeout" from="SwitchOffTimer" to="." method="set_off"]
 [connection signal="on_interact_signal" from="InteractableBlock" to="." method="on_interact"]
