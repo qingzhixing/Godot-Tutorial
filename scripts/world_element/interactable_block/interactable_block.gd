@@ -7,6 +7,7 @@ extends Node2D
 @onready var block_body = $BlockBody
 @onready var interact_area = $InteractArea
 signal on_interact_signal(interact_body: Node2D)
+signal on_interact_exit_signal(interact_body: Node2D)
 
 func _ready():
 	if interact_collision == null:
@@ -28,3 +29,7 @@ func _ready():
 
 func on_interact(interact_body: Node2D):
 	on_interact_signal.emit(interact_body)
+
+
+func on_interact_exit(interact_body: Node2D) -> void:
+	on_interact_exit_signal.emit(interact_body)

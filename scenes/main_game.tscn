@@ -800,6 +800,6 @@ tile_map_data = PackedByteArray("AAD7/woAAAAAAA8AAAD7/wsAAAAAAA8AAAD7/wwAAAAAAA8
 tile_set = SubResource("TileSet_gknqk")
 
 [node name="Door" parent="." instance=ExtResource("18_kevcv")]
-position = Vector2(928, -96)
+position = Vector2(912, -96)
 
 [connection signal="timeout" from="GameManager/Restart Count Down" to="GameManager" method="respawn_timeout"]

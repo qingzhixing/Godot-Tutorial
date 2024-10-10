@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://bx2rp600nc2ty"]
+[gd_scene load_steps=18 format=3 uid="uid://bx2rp600nc2ty"]
 
 [ext_resource type="Script" path="res://scripts/world_element/interactable_block/door.gd" id="1_2v8y1"]
 [ext_resource type="Texture2D" uid="uid://nkch3puca60s" path="res://assets/sprites/objects/Doors.png" id="1_4gyf8"]
 [ext_resource type="PackedScene" uid="uid://c16yeish8cedo" path="res://prefabs/world_element/interactable_block/interactable_block.tscn" id="2_500f4"]
+[ext_resource type="AudioStream" uid="uid://d1o5vjiv7asty" path="res://assets/sounds/Door_open.ogg" id="4_mnsdo"]
+[ext_resource type="AudioStream" uid="uid://c2qdr2cyaxae6" path="res://assets/sounds/Door_close.ogg" id="5_jlmjk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_haet5"]
 atlas = ExtResource("1_4gyf8")
@@ -98,15 +100,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jvpao"]
-size = Vector2(11.4286, 11.4286)
+size = Vector2(22.8572, 22.8572)
 
 [node name="Door" type="Node2D"]
 scale = Vector2(1.4, 1.4)
 script = ExtResource("1_2v8y1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5.71429, -5.71429)
-scale = Vector2(0.714286, 0.714286)
+position = Vector2(11.4286, -11.4286)
+scale = Vector2(1.42857, 1.42857)
 sprite_frames = SubResource("SpriteFrames_aeo5o")
 animation = &"idle_close"
 autoplay = "idle_close"
@@ -117,8 +119,16 @@ interact_collision = NodePath("InteractCollision")
 no_block_collision = true
 
 [node name="InteractCollision" type="CollisionShape2D" parent="InteractableBlock"]
-position = Vector2(5.71429, -5.71429)
+position = Vector2(11.4286, -11.4286)
 scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_jvpao")
 
+[node name="DoorOpen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_mnsdo")
+
+[node name="DoorClose" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_jlmjk")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="on_animated_sprite_animation_finished"]
+[connection signal="on_interact_exit_signal" from="InteractableBlock" to="." method="interact_body_exit"]
 [connection signal="on_interact_signal" from="InteractableBlock" to="." method="interact_body_enter"]
