@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"anim_close",
-"speed": 10.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -80,7 +80,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"anim_open",
-"speed": 10.0
+"speed": 30.0
 }, {
 "frames": [{
 "duration": 1.0,
