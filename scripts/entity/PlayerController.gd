@@ -36,9 +36,13 @@ func _ready():
 	game_manager.set_heart_ui(entity.current_health)
 	game_manager.display_coin_amount(coin_amount)
 
-func handle_sprite(direction: float):
+func handle_sprite():
 	if entity.is_died() || injuring:
 		return
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis("move_left", "move_right")
 
 	if direction > 0:
 		animated_sprite.flip_h = false
@@ -95,11 +99,34 @@ func set_interval_ok():
 
 func handle_jump():
 	# Handle jump.
+	if entity.is_died():
+		return
+
 	if jump_interval_ok && Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 		jump_interval_ok = false
 		jump_interval_timer.start()
 		jump_audio.play()
+
+func handle_shoot():
+	if entity.is_died():
+		return
+		
+	if Input.is_action_just_pressed("shoot"):
+		arrow_shooter.shoot(get_direction())
+		shoot_audio.play()
+
+func handle_movement():
+	if entity.is_died():
+		return
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis("move_left", "move_right")
+	# Movement
+	if direction:
+		velocity.x = direction * entity.speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, entity.speed)
 
 func _physics_process(delta):
 
@@ -108,25 +135,9 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	handle_jump()
-		
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
-	
-	if Input.is_action_just_pressed("shoot"):
-		arrow_shooter.shoot(get_direction())
-		shoot_audio.play()
-
-
-	# Switch Animation
-	handle_sprite(direction)
-
-	# Movement
-	if direction:
-		velocity.x = direction * entity.speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, entity.speed)
-
+	handle_shoot()
+	handle_sprite()
+	handle_movement()
 	move_and_slide()
 
 func handle_attack():

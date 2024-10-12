@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0.263063, 0.873827, 1), Color(0.323303, 0.701702, 0.91673, 1), Color(0.896522, 0.629665, 0.305574, 1), Color(3.65794e-06, 0.762845, 0.432344, 1), Color(0.255815, 0.47173, 0.986356, 1), Color(0.938252, 0.472567, 0.476382, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 0.263063, 0.873827, 1), Color(0, 0.550849, 0.566215, 1), Color(0.887334, 0.554443, 0, 1), Color(3.65794e-06, 0.762845, 0.432344, 1), Color(0.0554407, 0.278015, 0.942587, 1), Color(0.938252, 0.472567, 0.476382, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -45,7 +45,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-2.14286, -16.4286), Vector2(-10.7143, -46.4286)]
+"values": [Vector2(-2.14286, -16.4286), Vector2(-10.7143, -23.5714)]
 }
 
 [sub_resource type="Animation" id="Animation_f4ip0"]
@@ -198,8 +198,6 @@ root_node = NodePath("../Label")
 libraries = {
 "": SubResource("AnimationLibrary_n4yr3")
 }
-autoplay = "K Animation"
-speed_scale = 1.25
 
 [node name="Animate Door" type="AnimatedSprite2D" parent="."]
 position = Vector2(11.4286, -11.4286)
@@ -209,11 +207,10 @@ animation = &"idle_open"
 autoplay = "idle_close"
 
 [node name="Label" type="Label" parent="."]
-z_index = 1
-offset_left = -2.14286
-offset_top = -16.4286
-offset_right = 25.8571
-offset_bottom = -0.428572
+offset_left = -10.7143
+offset_top = -23.5714
+offset_right = 17.2857
+offset_bottom = -7.5714
 scale = Vector2(1.695, 1.695)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
